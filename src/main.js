@@ -1,28 +1,14 @@
 /**
- * Angry-Birds-7
- * The "Polish" Update
- *
- * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
- * Adapted to JS by: Vikram Singh (vikram.singh@johnabbott.qc.ca)
- *
- * Released by Rovio in 2009, Angry Birds took the mobile gaming scene by storm back
- * when it was still arguably in its infancy. Using the simple gameplay mechanic of
- * slingshotting birds into fortresses of various materials housing targeted pigs,
- * Angry Birds succeeded with its optimized formula for on-the-go gameplay. It's an
- * excellent showcase of the ubiquitous Box2D physics library, the most widely used
- * physics library of its kind, which is also open source. This "clone" of Angry Birds
- * doesn't contain nearly the plethora of features as the original series of games
- * it's based on but does use Matter.js to showcase the fundamental setup of what the
- * game looks like and how to use a subset of the physics library's features.
+ * PixelPut
  *
  * Art
- * @see https://www.spriters-resource.com/mobile/angrybirds/
+ * @see https://www.youtube.com/watch?v=q0zljXPVgjs
  *
  * Music
- * @see https://freesound.org/people/tyops/sounds/348166/
+ * @see https://www.youtube.com/watch?v=q0zljXPVgjs
  *
  * Font
- * @see https://www.dafont.com/angrybirds.font
+ * @see https://www.youtube.com/watch?v=q0zljXPVgjs 
  */
 
 import GameStateName from './enums/GameStateName.js';
