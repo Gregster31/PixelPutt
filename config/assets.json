@@ -1,0 +1,32 @@
+{
+	"images": [
+		{
+			"name": "background",
+			"path": "./assets/images/background.png",
+			"width": 512,
+			"height": 512
+		},
+		{
+			"name": "blocks",
+			"path": "./assets/images/blocks.png",
+			"width": 293,
+			"height": 189
+		},
+		{
+			"name": "sprites",
+			"path": "./assets/images/sprites.png",
+			"width": 2048,
+			"height": 2048
+		}
+	],
+	"fonts": [],
+	"sounds": [
+		{
+			"name": "music",
+			"path": "./assets/sounds/background_music.mp3",
+			"size": 1,
+			"volume": 0.1,
+			"loop": true
+		}
+	]
+}
