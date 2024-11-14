@@ -7,10 +7,10 @@
 			"height": 512
 		},
 		{
-			"name": "blocks",
-			"path": "./assets/images/blocks.png",
-			"width": 293,
-			"height": 189
+			"name": "tiles",
+			"path": "./assets/images/tiles.png",
+			"width": 271,
+			"height": 169
 		},
 		{
 			"name": "sprites",
