@@ -1,7 +1,8 @@
-{ "compressionlevel":-1,
- "height":20,
- "infinite":false,
- "layers":[
+       { 
+       "compressionlevel":-1,
+       "height":20,
+       "infinite":false,
+       "layers":[
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -33,19 +34,19 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":2,
- "nextobjectid":1,
- "orientation":"orthogonal",
- "renderorder":"right-down",
- "tiledversion":"1.11.0",
- "tileheight":16,
- "tilesets":[
+       "nextlayerid":2,
+       "nextobjectid":1,
+       "orientation":"orthogonal",
+       "renderorder":"right-down",
+       "tiledversion":"1.11.0",
+       "tileheight":16,
+       "tilesets":[
         {
          "firstgid":1,
-         "source":"tiles.tsx"
-        }],
- "tilewidth":16,
- "type":"map",
- "version":"1.10",
- "width":40
+         "source": "./tiles.tsx"
+         }],
+       "tilewidth":17,
+       "type":"map",
+       "version":"1.10",
+       "width":40
 }

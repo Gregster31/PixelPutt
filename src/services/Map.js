@@ -13,6 +13,7 @@ export default class Map {
 		this.tileSize = mapDefinition.tilewidth;
 		this.tilesets = mapDefinition.tilesets;
 
+		//! PROBLEM WITH THE SMALL PURPLE BAND IN MAP
 		const sprites = Sprite.generateSpritesFromSpriteSheet(
 			images.get(ImageName.Tiles),
 			this.tileSize,
@@ -27,9 +28,9 @@ export default class Map {
 	}
 
 	render() {
-		this.foregroundLayer.render();
+		this.foregroundLayer.render(); 
 
-		Map.renderGrid();
+		// Map.renderGrid();
 	}
 
 	getTileAt(layerIndex, col, row) {
