@@ -36,7 +36,7 @@ export default class PlayState extends State {
 	}
 
 	enter() {
-		this.ball = new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0);
+		this.ball = new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0); //new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0, 'red') IF YOU WANT TO CHANGE BALL COLOR
 		this.ground = new Ground();
 
 		/**
@@ -65,8 +65,11 @@ export default class PlayState extends State {
 		 */
 		Engine.update(engine);
 
-		this.ball?.update();
+		if (input.isKeyPressed(Input.KEYS.SPACE)) {
+			this.ball?.golfIt();
+		}
 
+		this.ball?.update();
 		this.debug.update();
 	}
 
