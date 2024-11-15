@@ -36,7 +36,7 @@ export default class PlayState extends State {
 	}
 
 	enter() {
-		this.ball = new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0); //new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0, 'red') IF YOU WANT TO CHANGE BALL COLOR
+		this.ball = new Ball(100 - Ball.RADIUS, 200); //new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0, 'red') IF YOU WANT TO CHANGE BALL COLOR
 		this.ground = new Ground();
 
 		/**
