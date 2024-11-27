@@ -20,9 +20,9 @@ PixelPut is a 2d puzzle golf game. Players must navigate through the objstacles 
 
 ## Problems
 - How to make the force arrow
-- How will I change my levels (Different 'Tiled' maps)
+- How will I change my levels (Create different pngs and put them as background)
+- How to make a complex matter ground (Get the vertices of the png map)
 - Purple band tiles bug
-- How to make a complex matter ground 
 
 ## Developement
 
