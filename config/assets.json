@@ -3,8 +3,8 @@
 		{
 			"name": "background",
 			"path": "./assets/images/background.png",
-			"width": 512,
-			"height": 512
+			"width": 640,
+			"height": 320
 		},
 		{
 			"name": "tiles",

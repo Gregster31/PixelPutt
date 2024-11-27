@@ -1,4 +1,5 @@
 import Fonts from '../lib/Fonts.js';
+import Graphic from '../lib/Graphic.js';
 import Images from '../lib/Images.js';
 import Input from '../lib/Input.js';
 import Sounds from '../lib/Sounds.js';

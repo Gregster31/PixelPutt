@@ -36,12 +36,8 @@ canvas.setAttribute('tabindex', '1'); // Allows the canvas to receive user input
 // Now that the canvas element has been prepared, we can add it to the DOM.
 document.body.prepend(canvas);
 
-const mapDefinition = await fetch('./config/tilemap.json').then((response) =>
-	response.json()
-);
-
 // Add all the states to the state machine.
-stateMachine.add(GameStateName.Play, new PlayState(mapDefinition));
+stateMachine.add(GameStateName.Play, new PlayState());
 
 stateMachine.change(GameStateName.Play);
 

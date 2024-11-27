@@ -9,36 +9,26 @@ import {
 	engine,
 	input,
 	matter,
+	sounds,
 	world,
 } from '../globals.js';
 import Ball from '../entities/Ball.js';
 import Ground from '../entities/Ground.js'
+import SoundName from '../enums/SoundName.js';
+import LevelMaker from '../services/LevelMaker.js';
 
 const { Composite, Engine, Mouse, MouseConstraint } = matter;
 
 export default class PlayState extends State {
-	constructor(mapDefinition) {
+	constructor() {
 		super();
-
-		this.map = new Map(mapDefinition);
-
-		// Create Debug instance
-		this.debug = new Debug();
-
-		// Watch player properties
-		this.debug.watch('Map', {
-			width: () => this.map.width,
-			height: () => this.map.height,
-		});
-
-		this.ball = null;
-		this.ground = new Ground();
 	}
 
-	enter() {
-		this.ball = new Ball(100 - Ball.RADIUS, 200); //new Ball(CANVAS_WIDTH / 2 - Ball.RADIUS, 0, 'red') IF YOU WANT TO CHANGE BALL COLOR
-		this.ground = new Ground();
+	enter(parameters = {}) {
+		sounds.play(SoundName.Music);
+		this.level = parameters.level ?? LevelMaker.createLevel();
 
+		//! TO CHANGE TESTING PURPOSES
 		/**
 		 * To implement mouse interaction, Matter provides a dedicated mechanism
 		 * to apply a Constraint to the mouse location. Mouse constraints are used
@@ -65,17 +55,14 @@ export default class PlayState extends State {
 		 */
 		Engine.update(engine);
 
-		if (input.isKeyPressed(Input.KEYS.SPACE)) {
-			this.ball?.golfIt();
-		}
-
-		this.ball?.update();
-		this.debug.update();
+		// if (input.isKeyPressed(Input.KEYS.SPACE)) {
+		// 	this.ball?.golfIt();
+		// }
+		
+		this.level.update(dt);
 	}
 
 	render() {
-		this.ball?.render();
-		this.map.render();
-		this.ground.render();
+		this.level.render();
 	}
 }

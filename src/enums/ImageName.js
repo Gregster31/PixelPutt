@@ -1,4 +1,5 @@
 const ImageName = {
+	Background: 'background',
 	Tiles: 'tiles',
 	Sprites: 'sprites',
 };

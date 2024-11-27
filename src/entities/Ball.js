@@ -37,7 +37,6 @@ export default class Ball extends Circle {
         this.currentColorBallSprite = Ball.SPRITE_MEASUREMENTS[color];
         this.sprites = GameEntity.generateSprites([this.currentColorBallSprite]);
         this.renderOffset = { x: -this.currentColorBallSprite.width / 2, y: -this.currentColorBallSprite.height / 2 };
-        
 	}
 
     render() {
