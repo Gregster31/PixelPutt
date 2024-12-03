@@ -22,15 +22,20 @@ Players begin at a certain place in the level. By draging their mouse when on to
 - Add obstacles (Ex: Boxes similar to blocks in AngryBirds)
 - Add different terrain (Ex: Sand that slows down + amortize the ball)
 - Add animations for hitting the ball (Player State)
-- Add animations for flag in the wind
+- ~~Add animations for flag in the wind~~
 - Add coins to buy new skins and ball colors
 - Make secret holes??
 
-### Problems
-- How to make the force arrow
+### Todo
+- ~~How to make the force arrow~~
 - ~~How will I change my levels (Create different pngs and put them as background)~~
 - ~~How to make a complex matter ground (Get the vertices of the png map)~~
 - ~~Purple band tiles bug~~
+- How to make character animation load the shot depending on the force arrow
+- Implement boxes (Pass an array of obj to level)
+- Implement different terrains
+- Make better levels
+- Clean structure of game
 
 https://github.com/user-attachments/assets/bfc10f4d-2084-4433-bf4d-9d0770cdd232
 
