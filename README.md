@@ -44,6 +44,13 @@ Good: Changed how map ground is implemented. Ground is now composed of multiple 
 Background is now just a PNG. Also, implemented level factory design, for easier level management.
 
 
+https://github.com/user-attachments/assets/1f2a224a-1f3b-4ceb-9e19-e94c5ab74a3c
+
+Good: Using mouse events, checks if the user drags his mouse and calculate the length and angle of the line to apply the right amount of force to the ball.
+Bad: The shot implementation is pretty raw.
+
+
+
 ## 🎨 Assets
 I plan on taking inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
