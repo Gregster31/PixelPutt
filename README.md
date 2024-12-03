@@ -46,9 +46,14 @@ Background is now just a PNG. Also, implemented level factory design, for easier
 
 https://github.com/user-attachments/assets/1f2a224a-1f3b-4ceb-9e19-e94c5ab74a3c
 
-Good: Using mouse events, checks if the user drags his mouse and calculate the length and angle of the line to apply the right amount of force to the ball.
+Good: Using mouse events, checks if the user drags his mouse and calculate the length and angle of the line to apply the right amount of force to the ball. <br>
 Bad: The shot implementation is pretty raw.
 
+
+https://github.com/user-attachments/assets/02e29804-15fe-40b9-bea9-94c7232ad4de
+
+Good: Added color on force arrow depending force and made it so only dragging from the ball works. Made a hole with small flag animation. Added Victory State. <br>
+Bad: VictoryState only checks if balls had the same X as the flag coordinates.
 
 
 ## 🎨 Assets
