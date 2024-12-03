@@ -20,7 +20,8 @@ const {
 	Vector,
 } = matter;
 export default class Shot {
-    constructor(ball) {
+    constructor(level, ball) {
+		this.level = level;
         this.ball = ball;
         this.wasLaunched = false;
         this.trajectoryPoints = [];
@@ -64,7 +65,7 @@ export default class Shot {
         });
 
         Events.on(mouseConstraint, "mouseup", () => {
-            if (this.isDragging && this.startPoint && this.endPoint) {
+            if (this.isDragging && this.ball.didStop() && this.startPoint && this.endPoint) {
                 this.launchBall();
             }
             this.isDragging = false;
@@ -74,13 +75,13 @@ export default class Shot {
     }
 
     launchBall() {
+		this.level.currentStrokes += 1
+
         // @ts-ignore
         const dx = this.endPoint.x - this.startPoint.x;
         // @ts-ignore
         const dy = this.endPoint.y - this.startPoint.y;
-
         const magnitude = Math.sqrt(dx * dx + dy * dy);
-
         const forceScale = -0.005;
         const force = {
             x: (dx / magnitude) * magnitude * forceScale,
@@ -93,15 +94,19 @@ export default class Shot {
     }
 
     update(dt) {
-		
-    }
+
+	}
 
     render() {
         if (this.isDragging && this.startPoint && this.endPoint) {
             context.beginPath();
             context.moveTo(this.startPoint.x, this.startPoint.y);
             context.lineTo(this.endPoint.x, this.endPoint.y);
-            context.strokeStyle = "black";
+			if(this.ball.didStop()) {
+            	context.strokeStyle = "black";
+			} else {
+				context.strokeStyle = "red";
+			}
             context.lineWidth = 2;
             context.stroke();
             context.closePath();

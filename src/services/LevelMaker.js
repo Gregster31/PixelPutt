@@ -22,11 +22,11 @@ export default class LevelMaker {
 	}
 
 	static levelOne() {
-		return new Level(1, new Ball(100 - Ball.RADIUS, 200, 'white'));
+		return new Level(1, new Ball(100 - Ball.RADIUS, 200, 'white'), 1); //! To change number of strokes
 	}
 
 	static levelTwo() {
-		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 'red'));
+		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 'red'), 10);
 	}
 
 	static levelThree() {
@@ -45,7 +45,7 @@ export default class LevelMaker {
 		// 	new Block(LevelMaker.START_X + Block.SPRITE_MEASUREMENTS[Size.Medium].width * 8, CANVAS_HEIGHT - Ground.GRASS.height - Block.SPRITE_MEASUREMENTS[Size.Medium].height, Size.Large, Block.ANGLE_LEFT_DIAGONAL),
 		// ];
 
-		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 'blue'));
+		return new Level(3, new Ball(100 - Ball.RADIUS, 200, 'blue'), 10);
 
 		// return new Level(3, new Fortress(blocks, ball)); //! example of what i want to do when passing blocks
 	}

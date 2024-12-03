@@ -10,12 +10,14 @@ import {
 	input,
 	matter,
 	sounds,
+	stateMachine,
 	world,
 } from '../globals.js';
 import Ball from '../entities/Ball.js';
 import Ground from '../entities/Ground.js'
 import SoundName from '../enums/SoundName.js';
 import LevelMaker from '../services/LevelMaker.js';
+import GameStateName from '../enums/GameStateName.js';
 
 const { Composite, Engine, Mouse, MouseConstraint } = matter;
 
@@ -60,9 +62,23 @@ export default class PlayState extends State {
 		// }
 		
 		this.level.update(dt);
+		this.checkWinOrLose();
 	}
 
 	render() {
 		this.level.render();
+	}
+
+	checkWinOrLose() {
+		if (this.level.didWin()) {
+			stateMachine.change(GameStateName.Victory, {
+				background: this.level.background,
+				level: this.level.number,
+			});
+		} else if (this.level.didLose()) {
+			stateMachine.change(GameStateName.GameOver, {
+				background: this.level.background,
+			});
+		}
 	}
 }

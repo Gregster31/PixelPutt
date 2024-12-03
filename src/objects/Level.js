@@ -15,10 +15,12 @@ export default class Level {
 	 * @param {number} number The current level's number.
 	 * @param {Ball} ball
 	 */
-	constructor(number, ball) {
+	constructor(number, ball, maxStrokes) {
 		this.number = number;
 		this.ball = ball;
-		this.shot = new Shot(ball);
+		this.maxStrokes = maxStrokes
+		this.currentStrokes = 0
+		this.shot = new Shot(this, ball);
 		this.ground = new Ground(); // the matter body with the vertices
 		this.background = new Background(); // THe png at the back
 	}
@@ -33,12 +35,16 @@ export default class Level {
 		this.ground.render();
 		this.ball.render();
 		this.shot.render();
+
+		//! For debugging
+		this.renderStatistics()
 	}
 
 	renderStatistics() {
 		context.fillStyle = 'navy';
-		context.font = '60px PixelPut';
-		context.fillText(`Level: ${this.number}`, 50, 100);
+		context.font = '30 PixelPut';
+		context.fillText(`Level: ${this.number}`, 20, 40);
+		context.fillText(`Strokes: ${this.currentStrokes}`, 20, 50);
 	}
 
 	didWin() {
@@ -47,5 +53,6 @@ export default class Level {
 
 	didLose() {
 		// Obtain the max amount of strokes
+		return this.currentStrokes > this.maxStrokes
 	}
 }

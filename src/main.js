@@ -27,6 +27,7 @@ import {
 	stateMachine,
 } from './globals.js';
 import PlayState from './states/PlayState.js';
+import GameOverState from './states/GameOverState.js';
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
@@ -38,6 +39,8 @@ document.body.prepend(canvas);
 
 // Add all the states to the state machine.
 stateMachine.add(GameStateName.Play, new PlayState());
+stateMachine.add(GameStateName.GameOver, new GameOverState());
+
 
 stateMachine.change(GameStateName.Play);
 
