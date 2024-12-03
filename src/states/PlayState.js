@@ -30,21 +30,21 @@ export default class PlayState extends State {
 		sounds.play(SoundName.Music);
 		this.level = parameters.level ?? LevelMaker.createLevel();
 
-		//! TO CHANGE TESTING PURPOSES
-		/**
-		 * To implement mouse interaction, Matter provides a dedicated mechanism
-		 * to apply a Constraint to the mouse location. Mouse constraints are used
-		 * for allowing user interaction, providing the ability to move bodies via
-		 * the mouse or touch.
-		 *
-		 * @see https://brm.io/matter-js/docs/classes/MouseConstraint.html
-		 */
-		Composite.add(
-			world,
-			MouseConstraint.create(engine, {
-				mouse: Mouse.create(canvas),
-			})
-		);
+		// //! TO CHANGE TESTING PURPOSES
+		// /**
+		//  * To implement mouse interaction, Matter provides a dedicated mechanism
+		//  * to apply a Constraint to the mouse location. Mouse constraints are used
+		//  * for allowing user interaction, providing the ability to move bodies via
+		//  * the mouse or touch.
+		//  *
+		//  * @see https://brm.io/matter-js/docs/classes/MouseConstraint.html
+		//  */
+		// Composite.add(
+		// 	world,
+		// 	MouseConstraint.create(engine, {
+		// 		mouse: Mouse.create(canvas),
+		// 	})
+		// );
 	}
 
 	update(dt) {

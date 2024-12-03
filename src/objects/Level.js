@@ -15,7 +15,8 @@ export default class Level {
 	 * @param {number} number The current level's number.
 	 * @param {Ball} ball
 	 */
-	constructor(number, ball, maxStrokes) {
+	constructor(number, ball, maxStrokes, flag) {
+		this.flag = flag;
 		this.number = number;
 		this.ball = ball;
 		this.maxStrokes = maxStrokes
@@ -28,6 +29,7 @@ export default class Level {
 	update(dt) {
 		this.ball.update(dt)
 		this.shot.update(dt);
+		this.flag.update(dt);
 	}
 
 	render() {
@@ -35,6 +37,7 @@ export default class Level {
 		this.ground.render();
 		this.ball.render();
 		this.shot.render();
+		this.flag.render();
 
 		//! For debugging
 		this.renderStatistics()
@@ -49,8 +52,15 @@ export default class Level {
 
 	didWin() {
 		// Ball entered the hole
+		const flagLeft = this.flag.x;
+		const flagRight = this.flag.x + 41;
+	
+		return (
+			this.ball.body.position.x >= flagLeft &&
+			this.ball.body.position.x <= flagRight
+		);
 	}
-
+	
 	didLose() {
 		// Obtain the max amount of strokes
 		return this.currentStrokes > this.maxStrokes

@@ -63,11 +63,11 @@ export default class Ground extends GameEntity {
 				}
 				context.closePath();
 	
-				//! TESTING PURPOSES - GET OUTLINE IN BLUE OF THE MAP GROUND
-				// Set outline style
-				context.strokeStyle = "blue";
-				context.lineWidth = 2;
-				context.stroke();
+				// //! TESTING PURPOSES - GET OUTLINE IN BLUE OF THE MAP GROUND
+				// // Set outline style
+				// context.strokeStyle = "blue";
+				// context.lineWidth = 2;
+				// context.stroke();
 			});
 	
 			context.restore();
