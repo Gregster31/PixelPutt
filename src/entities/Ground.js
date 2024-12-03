@@ -19,7 +19,7 @@ export default class Ground extends GameEntity {
             { x: 0, y: 320 },
         ]);
 
-        const smallTrapeze = matter.Bodies.fromVertices(256, 280, [
+        const smallTrapeze = matter.Bodies.fromVertices(256, 281, [
             { x: 223, y: 288 },
             { x: 239, y: 272 },
             { x: 273, y: 272 },
@@ -64,10 +64,10 @@ export default class Ground extends GameEntity {
 				context.closePath();
 	
 				//! TESTING PURPOSES - GET OUTLINE IN BLUE OF THE MAP GROUND
-				// // Set outline style
-				// context.strokeStyle = "blue";
-				// context.lineWidth = 2;
-				// context.stroke();
+				// Set outline style
+				context.strokeStyle = "blue";
+				context.lineWidth = 2;
+				context.stroke();
 			});
 	
 			context.restore();

@@ -6,6 +6,9 @@ import {
 } from "../globals.js";
 
 export default class Circle extends GameEntity {
+	static ANGULAR_SPEED_MINIMUM = 0.00001;
+	static SPEED_MINIMUM = 0.3;
+	
 	/**
 	 * A GameEntity that has a Matter circle as its body.
 	 * Both Canvas and Matter use the center of their circles
@@ -42,5 +45,9 @@ export default class Circle extends GameEntity {
 			context.closePath();
 			context.stroke();
 		});
+	}
+
+	didStop() {
+		return this.body.angularSpeed < Circle.ANGULAR_SPEED_MINIMUM && this.body.speed < Circle.SPEED_MINIMUM;
 	}
 }
