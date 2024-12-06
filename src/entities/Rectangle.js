@@ -19,7 +19,7 @@ export default class Rectangle extends GameEntity {
 	 * @param {number} height
 	 * @param {object} options
 	 */
-	constructor(x, y, width, height, colour, options) {
+	constructor(x, y, width, height, colour = "transparent", options) {
 		super(matter.Bodies.rectangle(
 			x + width / 2,
 			y + height / 2,

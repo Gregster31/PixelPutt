@@ -17,6 +17,12 @@
 			"path": "./assets/images/sprites.png",
 			"width": 2048,
 			"height": 2048
+		},
+		{
+			"name": "blocks",
+			"path": "./assets/images/blocks.png",
+			"width": 289,
+			"height": 291
 		}
 	],
 	"fonts": [],

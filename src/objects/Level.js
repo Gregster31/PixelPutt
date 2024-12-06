@@ -14,22 +14,24 @@ export default class Level {
 	 *
 	 * @param {number} number The current level's number.
 	 * @param {Ball} ball
+	 * @param {number} maxStrokes Maximum allowed strokes
+	 * @param {Array} entities An array of entities to be added to the level
 	 */
-	constructor(number, ball, maxStrokes, flag) {
-		this.flag = flag;
+	constructor(number, ball, maxStrokes, entities = []) {
 		this.number = number;
 		this.ball = ball;
-		this.maxStrokes = maxStrokes
-		this.currentStrokes = 0
+		this.maxStrokes = maxStrokes;
+		this.currentStrokes = 0;
 		this.shot = new Shot(this, ball);
-		this.ground = new Ground(); // the matter body with the vertices
-		this.background = new Background(); // THe png at the back
+		this.ground = new Ground();
+		this.background = new Background();
+		this.entities = entities;
 	}
 
 	update(dt) {
-		this.ball.update(dt)
+		this.ball.update(dt);
 		this.shot.update(dt);
-		this.flag.update(dt);
+		this.entities.forEach(entity => entity.update(dt));
 	}
 
 	render() {
@@ -37,10 +39,9 @@ export default class Level {
 		this.ground.render();
 		this.ball.render();
 		this.shot.render();
-		this.flag.render();
+		this.entities.forEach(entity => entity.render());
 
-		//! For debugging
-		this.renderStatistics()
+		this.renderStatistics(); // Render debugging statistics
 	}
 
 	renderStatistics() {
@@ -51,18 +52,21 @@ export default class Level {
 	}
 
 	didWin() {
-		// Ball entered the hole
-		const flagLeft = this.flag.x;
-		const flagRight = this.flag.x + 41;
-	
+		// Check if the ball has entered the flag area
+		const flag = this.entities.find(entity => entity.constructor.name === "Flag");
+		if (!flag) return false;
+
+		const flagLeft = flag.x;
+		const flagRight = flag.x + 41;
+
 		return (
 			this.ball.body.position.x >= flagLeft &&
 			this.ball.body.position.x <= flagRight
 		);
 	}
-	
+
 	didLose() {
-		// Obtain the max amount of strokes
-		return this.currentStrokes > this.maxStrokes
+		// Check if the player has exceeded the maximum allowed strokes
+		return this.currentStrokes > this.maxStrokes;
 	}
 }
