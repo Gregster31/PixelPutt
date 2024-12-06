@@ -72,6 +72,8 @@ https://www.youtube.com/watch?v=RJJugb2uJPs
 https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/
 https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/
 https://www.spriters-resource.com/fullview/169559/
+https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/17601/
+https://www.spriters-resource.com/nes/mckids/sheet/88096/
 
 ### 🔊 Sounds 
 https://www.youtube.com/watch?v=9gD-J5CBWRQ
