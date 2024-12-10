@@ -61,6 +61,13 @@ Good: Added color on force arrow depending force and made it so only dragging fr
 Bad: VictoryState only checks if balls had the same X as the flag coordinates.
 
 
+https://github.com/user-attachments/assets/44104555-2856-48ed-9ced-a733d9678fe8
+
+Good: Added a level design, spikes, blocks, borders.
+Bad: Need to adjust victory condition, add spike sprite, better block sprite, refactor code.
+
+
+
 ## 🎨 Assets
 I plan on taking inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
@@ -72,6 +79,8 @@ https://www.youtube.com/watch?v=RJJugb2uJPs
 https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/
 https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/
 https://www.spriters-resource.com/fullview/169559/
+https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/17601/
+https://www.spriters-resource.com/nes/mckids/sheet/88096/
 
 ### 🔊 Sounds 
 https://www.youtube.com/watch?v=9gD-J5CBWRQ
