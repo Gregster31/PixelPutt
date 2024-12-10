@@ -61,6 +61,13 @@ Good: Added color on force arrow depending force and made it so only dragging fr
 Bad: VictoryState only checks if balls had the same X as the flag coordinates.
 
 
+https://github.com/user-attachments/assets/44104555-2856-48ed-9ced-a733d9678fe8
+
+Good: Added a level design, spikes, blocks, borders.
+Bad: Need to adjust victory condition, add spike sprite, better block sprite, refactor code.
+
+
+
 ## 🎨 Assets
 I plan on taking inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
