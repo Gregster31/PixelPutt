@@ -4,8 +4,10 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH, images } from '../globals.js';
 import { pickRandomElement } from '../../lib/Random.js';
 
 export default class Background {
-	static WIDTH = 640;
-	static HEIGHT = 320;
+	// static WIDTH = 640; 	//Background
+	// static HEIGHT = 320; 
+	static WIDTH = 640; 	//Background1
+	static HEIGHT = 400; 
 
 	/**
 	 * Randomly generates a background from 2 sprites

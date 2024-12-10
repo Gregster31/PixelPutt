@@ -52,16 +52,21 @@ export default class Level {
 	}
 
 	didWin() {
-		// Check if the ball has entered the flag area
+		// Find the flag entity
 		const flag = this.entities.find(entity => entity.constructor.name === "Flag");
 		if (!flag) return false;
-
+	
 		const flagLeft = flag.x;
-		const flagRight = flag.x + 41;
-
+		const flagRight = flag.x + 20;
+		const flagTop = flag.y;
+		const flagBottom = flag.y - 20;
+	
+		// Check if the ball is within the flag's bounds
 		return (
 			this.ball.body.position.x >= flagLeft &&
-			this.ball.body.position.x <= flagRight
+			this.ball.body.position.x <= flagRight &&
+			this.ball.body.position.y <= flagTop &&
+			this.ball.body.position.y >= flagBottom
 		);
 	}
 
@@ -69,4 +74,5 @@ export default class Level {
 		// Check if the player has exceeded the maximum allowed strokes
 		return this.currentStrokes > this.maxStrokes;
 	}
+	
 }

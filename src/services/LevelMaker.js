@@ -4,6 +4,7 @@ import { CANVAS_HEIGHT } from "../globals.js";
 import Ball from "../entities/Ball.js";
 import Flag from "../objects/Flag.js";
 import Block from "../entities/Block.js";
+import Spike from "../entities/Spike.js";
 
 /**
  * Encapsulates all logic to create a level
@@ -25,11 +26,12 @@ export default class LevelMaker {
 
 	static levelOne() {
 		const entities = [
-			new Block(200, 293),
-			new Block(250, 293),
-			new Flag(580, 293)
+			new Block(200, 120),
+			// new Block(250, 293),
+			new Spike(350, 297),
+			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 200, 'white'), 3, entities); //! To change number of strokes
+		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 'white'), 10, entities); //! To change number of strokes
 	}
 
 	static levelTwo() {

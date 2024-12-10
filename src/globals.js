@@ -16,7 +16,7 @@ const assetDefinition = await fetch('./config/assets.json').then((response) =>
 // Replace these values according to how big you want your canvas.
 export const TILE_SIZE = 16;
 export const CANVAS_WIDTH = TILE_SIZE * 40;
-export const CANVAS_HEIGHT = TILE_SIZE * 20;
+export const CANVAS_HEIGHT = TILE_SIZE * 25;
 
 const resizeCanvas = () => {
 	const scaleX = window.innerWidth / CANVAS_WIDTH;

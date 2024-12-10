@@ -57,7 +57,7 @@ export default class Block extends Rectangle {
 		}
 	
 		context.closePath();
-		context.stroke();
+		// context.stroke();
 	}
 
 	static generateBlockSprites() {

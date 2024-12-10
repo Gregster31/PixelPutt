@@ -7,6 +7,12 @@
 			"height": 320
 		},
 		{
+			"name": "background1",
+			"path": "./assets/images/background1.png",
+			"width": 640,
+			"height": 400
+		},
+		{
 			"name": "tiles",
 			"path": "./assets/images/tiles.png",
 			"width": 271,
