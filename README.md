@@ -63,8 +63,14 @@ Bad: VictoryState only checks if balls had the same X as the flag coordinates.
 
 https://github.com/user-attachments/assets/44104555-2856-48ed-9ced-a733d9678fe8
 
-Good: Added a level design, spikes, blocks, borders.
+Good: Added a level design, spikes, blocks, borders. <br>
 Bad: Need to adjust victory condition, add spike sprite, better block sprite, refactor code.
+
+
+https://github.com/user-attachments/assets/197fd7af-b968-4745-9eca-85f8c5d1409b
+
+Good: Added a nice MainMenu with a moving background <br>
+Bad: Shop button is not implemented yet, add transitionState?
 
 
 
