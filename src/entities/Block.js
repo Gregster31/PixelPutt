@@ -9,7 +9,7 @@ import Rectangle from './Rectangle.js';
 
 export default class Block extends Rectangle {
 	static SPRITE_MEASUREMENTS = {
-		box: { x: 138, y: 66, width: 16, height: 16 },
+		normalBlock: { x: 138, y: 66, width: 16, height: 16 },
 	};
 
 	static BLOCK_SIZE = 16;
@@ -27,8 +27,7 @@ export default class Block extends Rectangle {
 
 		this.x = x;
 		this.y = y
-        this.blockSprites = Block.generateBlockSprites();
-		this.sprites = this.blockSprites;
+		this.sprites = Block.generateBlockSprites();
 
 		this.renderOffset = {
 			x: -(this.width / 2),
@@ -44,19 +43,20 @@ export default class Block extends Rectangle {
 			);
 		}
 	
-		context.strokeStyle = "blue";
-		context.lineWidth = 2;
+		//! TESTING PURPOSES
+		// context.strokeStyle = "blue";
+		// context.lineWidth = 2;
 	
-		const { vertices } = this.body;
+		// const { vertices } = this.body;
 	
-		context.beginPath();
-		context.moveTo(vertices[0].x, vertices[0].y);
+		// context.beginPath();
+		// context.moveTo(vertices[0].x, vertices[0].y);
 	
-		for (let i = 1; i < vertices.length; i++) {
-			context.lineTo(vertices[i].x, vertices[i].y);
-		}
+		// for (let i = 1; i < vertices.length; i++) {
+		// 	context.lineTo(vertices[i].x, vertices[i].y);
+		// }
 	
-		context.closePath();
+		// context.closePath();
 		// context.stroke();
 	}
 
@@ -64,11 +64,12 @@ export default class Block extends Rectangle {
 		return [
 			new Sprite(
 				images.get(ImageName.Blocks),
-				Block.SPRITE_MEASUREMENTS["box"].x,
-				Block.SPRITE_MEASUREMENTS["box"].y,
-				Block.SPRITE_MEASUREMENTS["box"].width,
-				Block.SPRITE_MEASUREMENTS["box"].height
+				Block.SPRITE_MEASUREMENTS["normalBlock"].x,
+				Block.SPRITE_MEASUREMENTS["normalBlock"].y,
+				Block.SPRITE_MEASUREMENTS["normalBlock"].width,
+				Block.SPRITE_MEASUREMENTS["normalBlock"].height
 			),
+			//! TO ADD BUTTON box FOR EX
 			// new Sprite(
 			// 	images.get(ImageName.Wood),
 			// 	Block.SPRITE_MEASUREMENTS[Size.Medium].x,

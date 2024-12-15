@@ -4,7 +4,7 @@
 			"name": "background",
 			"path": "./assets/images/background.png",
 			"width": 640,
-			"height": 320
+			"height": 400
 		},
 		{
 			"name": "background1",

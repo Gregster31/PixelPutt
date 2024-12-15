@@ -13,15 +13,26 @@ import Spike from "../entities/Spike.js";
 export default class LevelMaker {
 	static START_X = 1500;
 
-	static createLevel(level = 1) {
+	static createLevel(level = 0) {
 		switch (level) {
+			case 0:
+				return LevelMaker.LevelMenu();
 			case 1:
 				return LevelMaker.levelOne();
 			case 2:
 				return LevelMaker.levelTwo();
-			default:
+			case 3:
 				return LevelMaker.levelThree();
+			default:
+				return LevelMaker.levelOne();
 		}
+	}
+
+	static LevelMenu() {
+		const entities = [
+			new Flag(580, 358),
+		]
+		return new Level(0, new Ball(100 - Ball.RADIUS, 200, 1), 30, entities);
 	}
 
 	static levelOne() {
@@ -31,7 +42,7 @@ export default class LevelMaker {
 			new Spike(350, 297),
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 'white'), 10, entities); //! To change number of strokes
+		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 1), 10, entities); //! To change number of strokes
 	}
 
 	static levelTwo() {
@@ -41,7 +52,7 @@ export default class LevelMaker {
 			new Flag(580, 293)
 		]
 
-		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 'red'), 10, entities);
+		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 1), 10, entities);
 	}
 
 	static levelThree() {
@@ -51,7 +62,7 @@ export default class LevelMaker {
 			new Flag(580, 293)
 		]
 		
-		return new Level(3, new Ball(100 - Ball.RADIUS, 200, 'blue'), 10, entities);
+		return new Level(3, new Ball(100 - Ball.RADIUS, 200, 1), 10, entities);
 
 		// return new Level(3, new Fortress(blocks, ball)); //! example of what i want to do when passing blocks
 	}

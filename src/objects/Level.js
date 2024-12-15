@@ -23,8 +23,8 @@ export default class Level {
 		this.maxStrokes = maxStrokes;
 		this.currentStrokes = 0;
 		this.shot = new Shot(this, ball);
-		this.ground = new Ground();
-		this.background = new Background();
+		this.ground = new Ground(number);
+		this.background = new Background(number);
 		this.entities = entities;
 	}
 

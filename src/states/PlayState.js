@@ -28,7 +28,7 @@ export default class PlayState extends State {
 
 	enter(parameters = {}) {
 		sounds.play(SoundName.Music);
-		this.level = parameters.level ?? LevelMaker.createLevel();
+		this.level = LevelMaker.createLevel(parameters.level);
 
 		// //! TO CHANGE TESTING PURPOSES
 		// /**
@@ -57,25 +57,21 @@ export default class PlayState extends State {
 		 */
 		Engine.update(engine);
 
-		// if (input.isKeyPressed(Input.KEYS.SPACE)) {
-		// 	this.ball?.golfIt();
-		// }
-		
-		this.level.update(dt);
+		this.level?.update(dt);
 		this.checkWinOrLose();
 	}
 
 	render() {
-		this.level.render();
+		this.level?.render();
 	}
 
 	checkWinOrLose() {
-		if (this.level.didWin()) {
+		if (this.level?.didWin()) {
 			stateMachine.change(GameStateName.Victory, {
 				background: this.level.background,
 				level: this.level.number,
 			});
-		} else if (this.level.didLose()) {
+		} else if (this.level?.didLose()) {
 			stateMachine.change(GameStateName.GameOver, {
 				background: this.level.background,
 			});

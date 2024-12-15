@@ -1,42 +1,56 @@
 import Sprite from '../../lib/Sprite.js';
 import ImageName from '../enums/ImageName.js';
 import { CANVAS_HEIGHT, CANVAS_WIDTH, images } from '../globals.js';
-import { pickRandomElement } from '../../lib/Random.js';
 
 export default class Background {
-	// static WIDTH = 640; 	//Background
-	// static HEIGHT = 320; 
-	static WIDTH = 640; 	//Background1
-	static HEIGHT = 400; 
+    static WIDTH = 640;
+    static HEIGHT = 400;
 
-	/**
-	 * Randomly generates a background from 2 sprites
-	 * dynamically based on the width of the canvas.
-	 */
-	constructor() {
-		this.sprites = Background.generateSprites();
-		this.images = [];
-		this.images.push(this.sprites[0]);
-	}
+    /**
+     * Dynamically generates a background based on the level number.
+     */
+    constructor(levelNumber) {
+        this.sprites = Background.generateSprites(levelNumber);
+    }
 
-	render() {
-		this.images.forEach((image, index) => {
-			image.render(
-				index * Background.WIDTH,
-				CANVAS_HEIGHT - Background.HEIGHT
-			);
-		});
-	}
+    render() {
+        this.sprites.forEach((sprite, index) => {
+            sprite.render(
+                index * Background.WIDTH,
+                CANVAS_HEIGHT - Background.HEIGHT
+            );
+        });
+    }
 
-	static generateSprites() {
-		return [
-			new Sprite(
-				images.get(ImageName.Background),
-				0,
-				0,
-				Background.WIDTH,
-				Background.HEIGHT
-			),
-		];
-	}
+    /**
+     * Generates background sprites based on the level number.
+     */
+    static generateSprites(levelNumber) {
+        let backgroundImageName;
+
+		switch (levelNumber) {
+            case 1:
+                backgroundImageName = ImageName.BackgroundLevel1;
+                break;
+            case 2:
+                backgroundImageName = ImageName.BackgroundLevel2;
+                break;
+            case 3:
+                backgroundImageName = ImageName.BackgroundLevel3;
+                break;
+            default:
+                backgroundImageName = ImageName.BackgroundMainMenu;
+                break;
+        }
+
+        return [
+            new Sprite(
+                images.get(backgroundImageName),
+                0,
+                0,
+                Background.WIDTH,
+                Background.HEIGHT
+            )
+        ];
+    }
 }

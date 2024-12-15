@@ -1,14 +1,15 @@
+import { getRandomNegativeNumber, getRandomPositiveInteger, getRandomPositiveNumber } from "../../lib/Random.js";
 import { context, matter } from "../globals.js";
 import Circle from "./Circle.js";
 import GameEntity from "./GameEntity.js";
 
 export default class Ball extends Circle {
     static SPRITE_MEASUREMENTS = {
-        smallWhite: { x: 316, y: 1148, width: 47, height: 47 },
-        white: { x: 1467, y: 1238, width: 81, height: 80 },
-        red: { x: 1467, y: 1322, width: 81, height: 80 },
-        blue: { x: 1384, y: 1342, width: 81, height: 80 },
-        green: { x: 1617, y: 1300, width: 81, height: 80 }
+        0: { x: 316, y: 1148, width: 47, height: 47 }, //small white
+        1: { x: 1467, y: 1238, width: 81, height: 80 }, //white
+        2: { x: 1467, y: 1322, width: 81, height: 80 }, //red
+        3: { x: 1384, y: 1342, width: 81, height: 80 }, //blue
+        4: { x: 1617, y: 1300, width: 81, height: 80 } //green
     };
 
 	static RADIUS = 5; // To change the golf ball size
@@ -24,7 +25,7 @@ export default class Ball extends Circle {
 	 * @param {number} x
 	 * @param {number} y
 	 */
-	constructor(x, y, color = 'white') {
+	constructor(x, y, color = 1) {
 		super(x, y, Ball.RADIUS, color, {
 			label: 'ball',
 			density: 0.1,
@@ -54,8 +55,20 @@ export default class Ball extends Circle {
 
     golfIt() {
 		matter.Body.applyForce(this.body, this.body.position, {
-			x: 0.2,
-			y: -0.2,
+			x: getRandomPositiveNumber(0.1, 0.2),
+			y: getRandomNegativeNumber(-0.07, -0.2),
 		});    
     }
+
+	isOutOfCanvas() {
+		const { x, y } = this.body.position;
+	
+		return (
+			x + Ball.RADIUS < 0 ||
+			x - Ball.RADIUS > context.canvas.width ||
+			y + Ball.RADIUS < 0 ||
+			y - Ball.RADIUS > context.canvas.height 
+		);
+	}
+	
 }

@@ -1,5 +1,6 @@
 const ImageName = {
-	Background: 'background1',
+	BackgroundMainMenu: 'background',
+	BackgroundLevel1: 'background1',
 	Tiles: 'tiles',
 	Sprites: 'sprites',
 	Blocks: 'blocks',
