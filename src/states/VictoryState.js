@@ -20,8 +20,8 @@ export default class VictoryState extends State {
 	}
 
 	update() {
-		if (input.isKeyPressed(Input.KEYS.ENTER) || input.isKeyPressed(Input.KEYS.E)) { // Added change level with E
-			stateMachine.change(GameStateName.Play, {
+		if (input.isKeyPressed(Input.KEYS.ENTER)) {
+			stateMachine.change(GameStateName.TitleScreen, {
 				background: this.background,
 				level: LevelMaker.createLevel(),
 			});
@@ -44,7 +44,7 @@ export default class VictoryState extends State {
 			CANVAS_HEIGHT / 2 - 80
 		);
 		context.fillText(
-			'Press Enter to Continue',
+			'Press Enter to Menu',
 			CANVAS_WIDTH / 2,
 			CANVAS_HEIGHT - 80
 		);

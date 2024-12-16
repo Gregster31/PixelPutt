@@ -27,6 +27,7 @@ export default class PlayState extends State {
 	}
 
 	enter(parameters = {}) {
+		matter.World.clear(world, false);
 		sounds.play(SoundName.Music);
 		this.level = LevelMaker.createLevel(parameters.level);
 
@@ -48,13 +49,8 @@ export default class PlayState extends State {
 	}
 
 	exit() {
-		// @ts-ignore
 		// Remove all bodies from the Matter world
-		this.level.entities.forEach(entity => {
-			if (entity.body) {
-				matter.World.remove(world, entity.body);
-			}
-		});
+		matter.World.clear(world, false);
 
 		// @ts-ignore
 		this.level.entities = [];		

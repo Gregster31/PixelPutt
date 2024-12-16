@@ -25,7 +25,7 @@ export default class Ball extends Circle {
 	 * @param {number} x
 	 * @param {number} y
 	 */
-	constructor(x, y, color = 1) {
+	constructor(x, y, color = 1, parameters = {}) {
 		super(x, y, Ball.RADIUS, color, {
 			label: 'ball',
 			density: 0.1,

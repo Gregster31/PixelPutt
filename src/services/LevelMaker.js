@@ -65,19 +65,37 @@ export default class LevelMaker {
 
 	static levelTwo() {
 		const entities = [
-			new Block(200, 293),
-			new Block(250, 293),
-			new Flag(580, 293)
+			new Flag(585, 101),
+			new Flag(505, 368, true), // Secret flag
+
+			// tower 0
+			new Spike(167, 330),
+			new Spike(183, 330),
+
+			// tower 1
+			new Spike(264, 265),
+			new Spike(280, 265),
+			new Spike(296, 265),
+
+			//Tower 2
+			new Spike(360, 249),
+			new Spike(376, 249),
+			new Spike(392, 249),
+
+			//Tower 3
+			new Spike(457, 217),
+			new Spike(473, 217),
+			new Spike(489, 217),
 		]
 
-		return new Level(2, new Ball(100 - Ball.RADIUS, 200, 1), 10, entities);
+		return new Level(2, new Ball(50 - Ball.RADIUS, 250, 1), 10, entities);
 	}
 
 	static levelThree() {
 		const entities = [
 			new Block(200, 293),
 			new Block(250, 293),
-			new Flag(580, 293)
+			new Flag(590, 293)
 		]
 		
 		return new Level(3, new Ball(100 - Ball.RADIUS, 200, 1), 10, entities);

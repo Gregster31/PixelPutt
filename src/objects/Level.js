@@ -30,6 +30,9 @@ export default class Level {
 
 	update(dt) {
 		this.checkBallSpikeCollision()
+		if(this.number == 2) {
+			this.checkSandTile()
+		}
 		this.ball.update(dt);
 		this.shot.update(dt);
 		this.entities.forEach(entity => entity.update(dt));
@@ -53,26 +56,40 @@ export default class Level {
 	}
 
 	didWin() {
-		const flag = this.entities.find(entity => entity.constructor.name === "Flag");	
-		const flagLeft = flag.x;
-		const flagRight = flag.x + 20;
-		const flagTop = flag.y;
-		const flagBottom = flag.y - 20;
-	
-		    // Set outline style
-			context.strokeStyle = "blue";
-			context.lineWidth = 2;
+		const flags = this.entities.filter(entity => entity.constructor.name === "Flag");
 		
-			// Draw the rectangle outline
-			context.strokeRect(flagLeft, flagTop, flagRight - flagLeft, flagBottom - flagTop);
-		// Check if the ball is within the flag's bounds
-		return (
-			this.ball.body.position.x >= flagLeft &&
-			this.ball.body.position.x <= flagRight &&
-			this.ball.body.position.y <= flagTop &&
-			this.ball.body.position.y >= flagBottom
-		);
+		if (flags.length === 0) return false;
+	
+		// Check if the ball is within the bounds of any flag
+		return flags.some(flag => {
+			let flagRight = 0
+			let flagLeft = 0
+			let flagTop = 0
+			let flagBottom = 0
+
+			if(flag.secret) {
+				flagRight = flag.x - 10;
+				flagLeft = flag.x - 25;
+				flagTop = flag.y - 20;
+				flagBottom = flag.y - 40;
+
+			} else {
+				flagRight = flag.x - 10;
+				flagLeft = flag.x - 20;
+				flagTop = flag.y;
+				flagBottom = flag.y - 15;
+			}
+	
+			return (
+				this.ball.body.position.x >= flagLeft &&
+				this.ball.body.position.x <= flagRight &&
+				this.ball.body.position.y <= flagTop &&
+				this.ball.body.position.y >= flagBottom
+			);
+		});
 	}
+	
+	
 
 	didLose() {
 		// Check if the player has exceeded the maximum allowed strokes
@@ -91,6 +108,30 @@ export default class Level {
 			}
 		});
 	}
+
+	checkSandTile() {
+		const sandLeft = 110; 
+		const sandRight = 490; 
+		const sandTop = 130;  
+		const sandBottom = 300; 
+	
+		const ballX = this.ball.body.position.x;
+		const ballY = this.ball.body.position.y;
+	
+		if (
+			ballX >= sandLeft &&
+			ballX <= sandRight &&
+			ballY >= sandTop &&
+			ballY <= sandBottom
+		) {
+			this.ball.body.restitution = 0.1;
+			this.ball.body.friction = 1;
+		} else {
+			this.ball.body.restitution = 0.8;
+			this.ball.body.friction = 0.5;
+		}
+	}
+	
 	
 	/**
 	 * Handles what happens when the ball collides with a spike.

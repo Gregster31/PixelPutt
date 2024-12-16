@@ -49,7 +49,7 @@ stateMachine.add(GameStateName.TitleScreen, new TitleScreenState());
 
 
 // stateMachine.change(GameStateName.TitleScreen); //! CHANGED FOR TESTING PURPOSES
-stateMachine.change(GameStateName.Play, {level:1});
+stateMachine.change(GameStateName.Play, {level:2});
 
 const game = new Game(stateMachine, context, canvas.width, canvas.height);
 

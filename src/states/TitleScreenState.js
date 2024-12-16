@@ -10,6 +10,7 @@ import {
 	sounds,
 	stateMachine,
 	timer,
+	world,
 } from '../globals.js';
 import State from '../../lib/State.js';
 import { roundedRectangle } from '../../lib/Drawing.js';

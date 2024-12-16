@@ -12,9 +12,10 @@ export default class Flag {
         flag5: { x: 1468, y: 1611, width: 40, height: 100 }
     };
 
-    constructor(x, y) {
+    constructor(x, y, secret = false) {
         this.x = x;
         this.y = y;
+        this.secret = secret
 
         this.sprites = GameEntity.generateSprites(Object.values(Flag.SPRITE_MEASUREMENTS));
 
@@ -40,8 +41,14 @@ export default class Flag {
     render() {
         context.save();
         context.translate(this.x, this.y);
+        let scaleFactor = 0
 
-        const scaleFactor = 0.5; 
+        if(this.secret) {
+            scaleFactor = 0.2; 
+        } else {
+            scaleFactor = 0.5
+        }
+
         context.scale(scaleFactor, scaleFactor);
 
         this.sprites[this.currentFrameIndex].render(this.renderOffset.x / scaleFactor, this.renderOffset.y / scaleFactor);
