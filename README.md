@@ -63,8 +63,14 @@ Bad: VictoryState only checks if balls had the same X as the flag coordinates.
 
 https://github.com/user-attachments/assets/44104555-2856-48ed-9ced-a733d9678fe8
 
-Good: Added a level design, spikes, blocks, borders.
+Good: Added a level design, spikes, blocks, borders. <br>
 Bad: Need to adjust victory condition, add spike sprite, better block sprite, refactor code.
+
+
+https://github.com/user-attachments/assets/197fd7af-b968-4745-9eca-85f8c5d1409b
+
+Good: Added a nice MainMenu with a moving background <br>
+Bad: Shop button is not implemented yet, add transitionState?
 
 
 
@@ -76,11 +82,11 @@ https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s
 https://www.youtube.com/watch?v=RJJugb2uJPs
 
 ### 🖼️ Spites 
-https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/
-https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/
-https://www.spriters-resource.com/fullview/169559/
-https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/17601/
-https://www.spriters-resource.com/nes/mckids/sheet/88096/
+https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/ <br>
+https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/ <br>
+https://www.spriters-resource.com/fullview/169559/ <br>
+https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/17601/ <br>
+https://www.spriters-resource.com/nes/mckids/sheet/88096/ <br>
 
 ### 🔊 Sounds 
 https://www.youtube.com/watch?v=9gD-J5CBWRQ
