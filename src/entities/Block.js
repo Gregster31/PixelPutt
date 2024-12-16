@@ -10,6 +10,7 @@ import Rectangle from './Rectangle.js';
 export default class Block extends Rectangle {
 	static SPRITE_MEASUREMENTS = {
 		normalBlock: { x: 138, y: 66, width: 16, height: 16 },
+		cloud: { x: 210, y: 191, width: 16, height: 16 },
 	};
 
 	static BLOCK_SIZE = 16;

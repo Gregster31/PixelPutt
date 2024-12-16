@@ -4,6 +4,7 @@ const ImageName = {
 	Tiles: 'tiles',
 	Sprites: 'sprites',
 	Blocks: 'blocks',
+	Spike: 'spikes'
 };
 
 export default ImageName;

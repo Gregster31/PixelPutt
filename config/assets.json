@@ -29,6 +29,12 @@
 			"path": "./assets/images/blocks.png",
 			"width": 289,
 			"height": 291
+		},
+		{
+			"name": "spikes",
+			"path": "./assets/images/spikes.png",
+			"width": 64,
+			"height": 16
 		}
 	],
 	"fonts": [],

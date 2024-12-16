@@ -29,6 +29,7 @@ export default class Level {
 	}
 
 	update(dt) {
+		this.checkBallSpikeCollision()
 		this.ball.update(dt);
 		this.shot.update(dt);
 		this.entities.forEach(entity => entity.update(dt));
@@ -52,15 +53,18 @@ export default class Level {
 	}
 
 	didWin() {
-		// Find the flag entity
-		const flag = this.entities.find(entity => entity.constructor.name === "Flag");
-		if (!flag) return false;
-	
+		const flag = this.entities.find(entity => entity.constructor.name === "Flag");	
 		const flagLeft = flag.x;
 		const flagRight = flag.x + 20;
 		const flagTop = flag.y;
 		const flagBottom = flag.y - 20;
 	
+		    // Set outline style
+			context.strokeStyle = "blue";
+			context.lineWidth = 2;
+		
+			// Draw the rectangle outline
+			context.strokeRect(flagLeft, flagTop, flagRight - flagLeft, flagBottom - flagTop);
 		// Check if the ball is within the flag's bounds
 		return (
 			this.ball.body.position.x >= flagLeft &&
@@ -73,6 +77,28 @@ export default class Level {
 	didLose() {
 		// Check if the player has exceeded the maximum allowed strokes
 		return this.currentStrokes > this.maxStrokes;
+	}
+
+	checkBallSpikeCollision() {
+		this.entities.forEach(entity => {
+			if (entity.constructor.name === "Spike") {
+				// Check for collision using Matter.js's Collision module
+				const collision = matter.SAT.collides(this.ball.body, entity.body);
+				if (collision) {
+					// console.log("collision")
+					this.onBallSpikeCollision();
+				}
+			}
+		});
+	}
+	
+	/**
+	 * Handles what happens when the ball collides with a spike.
+	 */
+	onBallSpikeCollision() {
+		// Resets the ball position to the beginning
+		matter.Body.setPosition(this.ball.body, { x: 100 - Ball.RADIUS, y: 50 });
+		matter.Body.setVelocity(this.ball.body, { x: 0, y: 0 });
 	}
 	
 }

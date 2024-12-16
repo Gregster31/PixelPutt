@@ -47,6 +47,19 @@ export default class PlayState extends State {
 		// );
 	}
 
+	exit() {
+		// @ts-ignore
+		// Remove all bodies from the Matter world
+		this.level.entities.forEach(entity => {
+			if (entity.body) {
+				matter.World.remove(world, entity.body);
+			}
+		});
+
+		// @ts-ignore
+		this.level.entities = [];		
+	}
+
 	update(dt) {
 		/**
 		 * Update the Matter world one step/frame. By calling it here,

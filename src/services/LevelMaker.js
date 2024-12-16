@@ -37,12 +37,30 @@ export default class LevelMaker {
 
 	static levelOne() {
 		const entities = [
-			new Block(200, 120),
-			// new Block(250, 293),
-			new Spike(350, 297),
+			new Block(198, 120),
+			new Block(215, 120),
+			new Block(205, 104),
+
+			// Tunnel Spikes
+			new Spike(346, 297),
+			new Spike(330, 297),
+			new Spike(314, 297),
+			new Spike(346, 215, 'down'),
+			new Spike(330, 215, 'down'),
+			new Spike(314, 215, 'down'),
+
+			//Wall Spikes
+			new Spike(616, 215, 'left'),
+			new Spike(616, 232, 'left'),
+			new Spike(616, 248, 'left'),
+			
+			//za killer spikes
+			new Spike(435, 169),
+			new Spike(24,343, 'right'),
+
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 1), 10, entities); //! To change number of strokes
+		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 1), 10, entities);
 	}
 
 	static levelTwo() {
