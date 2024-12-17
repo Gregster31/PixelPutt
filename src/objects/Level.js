@@ -113,7 +113,6 @@ export default class Level {
 				// Check for collision using Matter.js's Collision module
 				const collision = matter.SAT.collides(this.ball.body, entity.body);
 				if (collision) {
-					// console.log("collision")
 					this.onBallSpikeCollision();
 				}
 			}
@@ -126,7 +125,6 @@ export default class Level {
 				// Check for collision using Matter.js's Collision module
 				const collision = matter.SAT.collides(this.ball.body, entity.body);
 				if (collision) {
-					// console.log("collision")
 					this.onBallUnlockBlockCollision();
 				}
 			}
@@ -146,8 +144,6 @@ export default class Level {
 		this.background = new Background(4);
 	}
 	
-	
-
 	checkSandTile() {
 		const sandLeft = 110; 
 		const sandRight = 490; 
@@ -171,13 +167,8 @@ export default class Level {
 		}
 	}
 	
-	
-	/**
-	 * Handles what happens when the ball collides with a spike.
-	 */
 	onBallSpikeCollision() {
 		sounds.play(SoundName.Kill);
-
 		// Resets the ball position to the beginning
 		matter.Body.setPosition(this.ball.body, this.ball.initialSpawn);
 		matter.Body.setVelocity(this.ball.body, { x: 0, y: 0 });

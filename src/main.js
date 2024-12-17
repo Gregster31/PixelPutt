@@ -1,20 +1,17 @@
 /**
- * Mario-0
+ * PixelPut
  *
- * Original Lua by: Colton Ogden (cogden@cs50.harvard.edu)
- * Adapted to JS by: Vikram Singh (vikram.singh@johnabbott.qc.ca)
+ * Base Code From: Vikram Singh (vikram.singh@johnabbott.qc.ca)
+ * Adapted By: Julien Halde (julienhalde9@gmail.com)
  *
- * Super Mario Bros. was instrumental in the resurgence of video
- * games in the mid-80s, following the infamous crash shortly after the
- * Atari age of the late 70s. The goal is to navigate various levels from
- * a side perspective, where jumping onto enemies inflicts damage and
- * jumping up into blocks typically breaks them or reveals a power-up.
- *
+ *	PixelPut is a 2d puzzle golf game. 
+ *	Players must navigate through the objstacles and different terrain 
+ *	throughout the levels to get in the hole with the least amount of strokes. 
  * Art
- * @see https://www.spriters-resource.com/snes/smarioworld/
+ * @see https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/
  *
  * Sounds & Music
- * @see https://www.sounds-resource.com/snes/supermarioworld/
+ * @see https://pixabay.com/sound-effects/
  */
 
 import GameStateName from './enums/GameStateName.js';
@@ -50,8 +47,8 @@ stateMachine.add(GameStateName.ShopScreen, new ShopState());
 stateMachine.add(GameStateName.TitleScreen, new TitleScreenState());
 
 
-// stateMachine.change(GameStateName.TitleScreen, {ballColor: 1}); //! CHANGED FOR TESTING PURPOSES
-stateMachine.change(GameStateName.Play, {level:3});
+stateMachine.change(GameStateName.TitleScreen, {ballColor: 1});
+// stateMachine.change(GameStateName.Play, {level:3});
 // stateMachine.change(GameStateName.ShopScreen);
 
 const game = new Game(stateMachine, context, canvas.width, canvas.height);

@@ -41,22 +41,6 @@ export default class KeyBlock extends Rectangle {
 				Math.floor(this.body.position.y + this.renderOffset.y)
 			);
 		}
-	
-		//! TESTING PURPOSES
-		// context.strokeStyle = "blue";
-		// context.lineWidth = 2;
-	
-		// const { vertices } = this.body;
-	
-		// context.beginPath();
-		// context.moveTo(vertices[0].x, vertices[0].y);
-	
-		// for (let i = 1; i < vertices.length; i++) {
-		// 	context.lineTo(vertices[i].x, vertices[i].y);
-		// }
-	
-		// context.closePath();
-		// context.stroke();
 	}
 
 	static generateBlockSprites() {

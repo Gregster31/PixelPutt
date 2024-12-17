@@ -13,6 +13,7 @@ export default class Block extends Rectangle {
 		cloud: { x: 210, y: 191, width: 16, height: 16 },
 	};
 
+	static BLOCK_MASS = 25
 	static BLOCK_SIZE = 16;
 
 	constructor(x, y) {
@@ -24,7 +25,7 @@ export default class Block extends Rectangle {
 			}
 		);
 
-		matter.Body.setMass(this.body, 25);
+		matter.Body.setMass(this.body, Block.BLOCK_MASS);
 
 		this.x = x;
 		this.y = y
@@ -43,22 +44,6 @@ export default class Block extends Rectangle {
 				Math.floor(this.body.position.y + this.renderOffset.y)
 			);
 		}
-	
-		//! TESTING PURPOSES
-		// context.strokeStyle = "blue";
-		// context.lineWidth = 2;
-	
-		// const { vertices } = this.body;
-	
-		// context.beginPath();
-		// context.moveTo(vertices[0].x, vertices[0].y);
-	
-		// for (let i = 1; i < vertices.length; i++) {
-		// 	context.lineTo(vertices[i].x, vertices[i].y);
-		// }
-	
-		// context.closePath();
-		// context.stroke();
 	}
 
 	static generateBlockSprites() {
@@ -70,14 +55,6 @@ export default class Block extends Rectangle {
 				Block.SPRITE_MEASUREMENTS["normalBlock"].width,
 				Block.SPRITE_MEASUREMENTS["normalBlock"].height
 			),
-			//! TO ADD BUTTON box FOR EX
-			// new Sprite(
-			// 	images.get(ImageName.Wood),
-			// 	Block.SPRITE_MEASUREMENTS[Size.Medium].x,
-			// 	Block.SPRITE_MEASUREMENTS[Size.Medium].y,
-			// 	Block.SPRITE_MEASUREMENTS[Size.Medium].width,
-			// 	Block.SPRITE_MEASUREMENTS[Size.Medium].height
-			// ),
 		];
 	}
 }

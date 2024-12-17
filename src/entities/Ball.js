@@ -11,6 +11,10 @@ export default class Ball extends Circle {
         3: { x: 1384, y: 1342, width: 81, height: 80 }, //blue
         4: { x: 1617, y: 1300, width: 81, height: 80 } //green
     };
+	static MAX_X_FORCE = 0.2;
+	static MIN_X_FORCE = 0.1;
+	static MIN_Y_FORCE = -0.07;
+	static MAX_Y_FORCE = -0.2;
 
 	static RADIUS = 5; // To change the golf ball size
 
@@ -56,8 +60,8 @@ export default class Ball extends Circle {
 
     golfIt() {
 		matter.Body.applyForce(this.body, this.body.position, {
-			x: getRandomPositiveNumber(0.1, 0.2),
-			y: getRandomNegativeNumber(-0.07, -0.2),
+			x: getRandomPositiveNumber(Ball.MIN_X_FORCE, Ball.MAX_X_FORCE),
+			y: getRandomNegativeNumber(Ball.MIN_Y_FORCE, Ball.MAX_Y_FORCE),
 		});    
     }
 

@@ -1,5 +1,6 @@
 import GameStateName from '../enums/GameStateName.js'; 
 import {
+	// @ts-ignore
 	canvas,
 	CANVAS_HEIGHT,
 	CANVAS_WIDTH,
@@ -9,7 +10,9 @@ import {
 	matter,
 	sounds,
 	stateMachine,
+	// @ts-ignore
 	timer,
+	// @ts-ignore
 	world,
     images,
 } from '../globals.js';
@@ -18,11 +21,11 @@ import { roundedRectangle } from '../../lib/Drawing.js';
 import Input from '../../lib/Input.js';
 import Ball from '../entities/Ball.js';
 import SoundName from '../enums/SoundName.js';
-import Background from '../objects/Background.js';
 import LevelMaker from '../services/LevelMaker.js';
 import { getRandomPositiveInteger } from '../../lib/Random.js';
 import ImageName from '../enums/ImageName.js';
 import Sprite from '../../lib/Sprite.js';
+// @ts-ignore
 const { Composite, Engine, Mouse, MouseConstraint } = matter;
 
 
@@ -46,7 +49,6 @@ export default class ShopState extends State {
 
 	enter() {
 		this.level = LevelMaker.createLevel(0);
-
 	}
 
 	exit() {
@@ -55,12 +57,16 @@ export default class ShopState extends State {
 
 	update(dt) {
 		Engine.update(engine);
+		// @ts-ignore
 		this.level.update(dt);
+		// @ts-ignore
 		if(this.level.ball.didStop()) {
+			// @ts-ignore
 			this.level.ball.golfIt()
 		}
-
+		// @ts-ignore
 		if(this.level.ball.isOutOfCanvas()) {
+			// @ts-ignore
 			this.level.ball = new Ball(100 - Ball.RADIUS, 250, getRandomPositiveInteger(1,4))
 		}
 		
@@ -143,6 +149,7 @@ export default class ShopState extends State {
 	}
 
 	render() {
+		// @ts-ignore
 		this.level.render();
 		this.drawDarkBackground();
         this.drawBallChoice();

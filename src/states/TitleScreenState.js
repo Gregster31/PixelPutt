@@ -1,5 +1,6 @@
 import GameStateName from '../enums/GameStateName.js'; 
 import {
+	// @ts-ignore
 	canvas,
 	CANVAS_HEIGHT,
 	CANVAS_WIDTH,
@@ -10,6 +11,7 @@ import {
 	sounds,
 	stateMachine,
 	timer,
+	// @ts-ignore
 	world,
 } from '../globals.js';
 import State from '../../lib/State.js';
@@ -17,9 +19,11 @@ import { roundedRectangle } from '../../lib/Drawing.js';
 import Input from '../../lib/Input.js';
 import Ball from '../entities/Ball.js';
 import SoundName from '../enums/SoundName.js';
+// @ts-ignore
 import Background from '../objects/Background.js';
 import LevelMaker from '../services/LevelMaker.js';
 import { getRandomPositiveInteger } from '../../lib/Random.js';
+// @ts-ignore
 const { Composite, Engine, Mouse, MouseConstraint } = matter;
 
 
@@ -46,18 +50,8 @@ export default class TitleScreenState extends State {
 		];
 		
 		this.titleLetters = ['P', 'I', 'X', 'E', 'L', 'P', 'U', 'T'];
-
-		// Time for a colour change if it's been half a second.
 		this.startColourTimer();
-
-		// Used to animate the full-screen transition rectangle.
-		this.transitionAlpha = 0;
-
-		// If we've selected an option, we need to pause input while we animate out.
-		this.inTransition = false;
-
 		this.ballColor = 1
-
 		this.levelHighScores = [100,100,100]
 
 		// Start the music the very first time showing this state.
@@ -73,8 +67,6 @@ export default class TitleScreenState extends State {
 		if(this.levelHighScores[parameters.level - 1] > parameters.strokes) {
 			this.levelHighScores[parameters.level - 1] = parameters.strokes
 		}
-		this.transitionAlpha = 0;
-		this.inTransition = false;
 		sounds.play(SoundName.Music);
 		this.startColourTimer();
 	}
@@ -86,12 +78,17 @@ export default class TitleScreenState extends State {
 	update(dt) {
 		Engine.update(engine);
 		
+		// @ts-ignore
 		this.level.update(dt);
+		// @ts-ignore
 		if(this.level.ball.didStop()) {
+			// @ts-ignore
 			this.level.ball.golfIt()
 		}
 
+		// @ts-ignore
 		if(this.level.ball.isOutOfCanvas()) {
+			// @ts-ignore
 			this.level.ball = new Ball(100 - Ball.RADIUS, 250, getRandomPositiveInteger(1,4))
 		}
 		
@@ -140,12 +137,12 @@ export default class TitleScreenState extends State {
 	}
 
 	render() {
+		// @ts-ignore
 		this.level.render();
 		this.drawDarkBackground();
 		this.drawTitleText();
 		this.drawLevelSelection();
 		this.drawShop();
-		this.drawTransitionOverlay();
 
 		if(this.levelHighScores[0] <= 3 && this.levelHighScores[1] <= 3 && this.levelHighScores[2] <= 3) {
 			context.font = '30px Retro'; 
@@ -205,38 +202,12 @@ export default class TitleScreenState extends State {
 			context.fillText(level, x + menuWidth / 2, y + menuHeight / 2);
 		}
 	}
-	
-
-	async startTransition(level) {
-			/**
-			 * Tween (using the Timer) the transition rectangle's alpha to 1, then
-			 * transition to the LevelTransitionState after the animation is over.
-			 */
-			await timer.tweenAsync(this, { transitionAlpha: 1 }, 1);
-
-			stateMachine.change(GameStateName.LevelTransition, {
-				level: level,
-			});
-
-			delete this.colourTimer;
-
-		this.inTransition = true;
-	}
 
 	/**
 	 * Keep the background and tiles a little darker to emphasize foreground.
 	 */
 	drawDarkBackground() {
 		context.fillStyle = 'rgb(0, 0, 0, 0.5)';
-		context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-	}
-
-	/**
-	 * Draw the transition overlay rectangle. It is normally fully transparent,
-	 * unless we're moving to a new state, in which case it slowly becomes opaque.
-	 */
-	drawTransitionOverlay() {
-		context.fillStyle = `rgb(255, 255, 255, ${this.transitionAlpha})`;
 		context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 	}
 
@@ -332,7 +303,6 @@ export default class TitleScreenState extends State {
 		);
 	}
 	
-
 	startColourTimer() {
 		this.colourTimer = timer.addTask(() => {
 			// Shift every colour to the next, looping the last to the front.

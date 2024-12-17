@@ -58,13 +58,6 @@ export default class PlayState extends State {
 
 	update(dt) {
 		this.checkWinOrLose();
-		/**
-		 * Update the Matter world one step/frame. By calling it here,
-		 * we can be sure that the Matter world will be updated at the
-		 * same rate as our canvas animation.
-		 *
-		 * @see https://brm.io/matter-js/docs/classes/Engine.html#method_update
-		 */
 		Engine.update(engine);
 
 		this.level?.update(dt);

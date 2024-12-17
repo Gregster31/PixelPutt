@@ -3,7 +3,7 @@ import GameEntity from "./GameEntity.js";
 
 export default class Ground extends GameEntity {
     /**
-     * Creates the ground using multiple shapes.
+     * Creates the ground using multiple matter shapes.
      */
     constructor(levelNumber) {
         const compoundBody = Ground.createCompoundBody(levelNumber);
@@ -324,34 +324,7 @@ export default class Ground extends GameEntity {
         return compoundBody;
     }
 
-    /**
-     * Renders the compound body with a blue outline.
-     */
 		render() {
-			context.save();
-			context.translate(this.body.position.x, this.body.position.y);
-			context.rotate(this.body.angle);
-	
-			this.body.parts.forEach((part, index) => {
-				if (index === 0) return;
-	
-				context.beginPath();
-				const vertices = part.vertices;
-	
-				context.moveTo(vertices[0].x - this.body.position.x, vertices[0].y - this.body.position.y);
-	
-				for (let i = 1; i < vertices.length; i++) {
-					context.lineTo(vertices[i].x - this.body.position.x, vertices[i].y - this.body.position.y);
-				}
-				context.closePath();
-	
-				//! TESTING PURPOSES - GET OUTLINE IN BLUE OF THE MAP GROUND
-				// Set outline style
-				// context.strokeStyle = "blue";
-				// context.lineWidth = 2;
-				// context.stroke();
-			});
-	
-			context.restore();
+
 		}
 }

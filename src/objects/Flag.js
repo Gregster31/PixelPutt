@@ -12,6 +12,9 @@ export default class Flag {
         flag5: { x: 1468, y: 1611, width: 40, height: 100 }
     };
 
+    static SECRET_FLAG_SCALE = 0.2;
+    static FLAG_SCALE = 0.5;
+
     constructor(x, y, secret = false) {
         this.x = x;
         this.y = y;
@@ -44,9 +47,9 @@ export default class Flag {
         let scaleFactor = 0
 
         if(this.secret) {
-            scaleFactor = 0.2; 
+            scaleFactor = Flag.SECRET_FLAG_SCALE; 
         } else {
-            scaleFactor = 0.5
+            scaleFactor = Flag.FLAG_SCALE
         }
 
         context.scale(scaleFactor, scaleFactor);

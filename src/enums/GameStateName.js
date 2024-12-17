@@ -5,7 +5,6 @@ const GameStateName = {
 	LevelTransition: 'levelTransition',
 	TitleScreen: 'titleScreen',
 	ShopScreen: 'shopScreen',
-	WinnerChickenDinner: 'winnerChickenDinnerScreen'
 };
 
 export default GameStateName;

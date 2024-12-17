@@ -32,19 +32,7 @@ export default class Circle extends GameEntity {
 	}
 
 	render() {
-		super.render(() => {
-			context.beginPath();
-			context.arc(0, 0, this.radius, 0, 2 * Math.PI);
-			context.closePath();
-			context.lineWidth = 4;
-			context.strokeStyle = 'blue';
-			context.stroke();
-			context.beginPath();
-			context.moveTo(0, 0);
-			context.lineTo(this.radius, 0)
-			context.closePath();
-			context.stroke();
-		});
+		super.render()
 	}
 
 	didStop() {

@@ -150,7 +150,6 @@ export default class Shot {
 
     launchBall() {
         this.level.currentStrokes += 1;
-
         // @ts-ignore
         const dx = this.endPoint.x - this.startPoint.x;
         // @ts-ignore

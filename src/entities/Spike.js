@@ -10,6 +10,7 @@ export default class Spike extends Triangle {
         spikeDown: { x: 32, y: 0, width: 16, height: 16 }, // Looking Down
         spikeLeft: { x: 48, y: 0, width: 16, height: 16 }, // Looking Left
     };
+    static TRIANGLE_SIZE = 8;
 
     /**
      * Creates a spike with a triangular shape.
@@ -42,27 +43,27 @@ export default class Spike extends Triangle {
         switch (direction) {
             case "up":
                 return [
-                    { x: 0, y: -8 },    
-                    { x: -8, y: 8 },    
-                    { x: 8, y: 8 },     
+                    { x: 0, y: -Spike.TRIANGLE_SIZE },    
+                    { x: -Spike.TRIANGLE_SIZE, y: Spike.TRIANGLE_SIZE },    
+                    { x: Spike.TRIANGLE_SIZE, y: Spike.TRIANGLE_SIZE },     
                 ];
             case "down":
                 return [
-                    { x: 0, y: 8 },     
-                    { x: -8, y: -8 },   
-                    { x: 8, y: -8 },    
+                    { x: 0, y: Spike.TRIANGLE_SIZE },     
+                    { x: -Spike.TRIANGLE_SIZE, y: -Spike.TRIANGLE_SIZE },   
+                    { x: Spike.TRIANGLE_SIZE, y: -Spike.TRIANGLE_SIZE },    
                 ];
             case "left":
                 return [
-                    { x: -8, y: 0 },   
-                    { x: 8, y: -8 },    
-                    { x: 8, y: 8 },     
+                    { x: -Spike.TRIANGLE_SIZE, y: 0 },   
+                    { x: Spike.TRIANGLE_SIZE, y: -Spike.TRIANGLE_SIZE },    
+                    { x: Spike.TRIANGLE_SIZE, y: Spike.TRIANGLE_SIZE },     
                 ];
             case "right":
                 return [
-                    { x: 8, y: 0 },  
-                    { x: -8, y: -8 },   
-                    { x: -8, y: 8 },    
+                    { x: Spike.TRIANGLE_SIZE, y: 0 },  
+                    { x: -Spike.TRIANGLE_SIZE, y: -Spike.TRIANGLE_SIZE },   
+                    { x: -Spike.TRIANGLE_SIZE, y: Spike.TRIANGLE_SIZE },    
                 ];
             default:
                 throw new Error(`Invalid spike direction: ${direction}`);
@@ -77,22 +78,6 @@ export default class Spike extends Triangle {
                 Math.floor(this.body.position.y + this.renderOffset.y)
             );
         }
-
-        //! FOR DEBUGGING PUPOSES
-        context.strokeStyle = "blue";
-        context.lineWidth = 2;
-
-        const { vertices } = this.body;
-
-        context.beginPath();
-        context.moveTo(vertices[0].x, vertices[0].y);
-
-        for (let i = 1; i < vertices.length; i++) {
-            context.lineTo(vertices[i].x, vertices[i].y);
-        }
-
-        context.closePath();
-        context.stroke();
     }
 
     static generateSpikeSprites() {
