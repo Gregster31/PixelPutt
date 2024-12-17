@@ -5,6 +5,7 @@ import Ball from "../entities/Ball.js";
 import Flag from "../objects/Flag.js";
 import Block from "../entities/Block.js";
 import Spike from "../entities/Spike.js";
+import KeyBlock from "../entities/KeyBlock.js";
 
 /**
  * Encapsulates all logic to create a level
@@ -69,8 +70,8 @@ export default class LevelMaker {
 			new Flag(505, 368, true), // Secret flag
 
 			// tower 0
-			new Spike(167, 330),
-			new Spike(183, 330),
+			new Spike(167, 329),
+			new Spike(183, 329),
 
 			// tower 1
 			new Spike(264, 265),
@@ -93,13 +94,10 @@ export default class LevelMaker {
 
 	static levelThree() {
 		const entities = [
-			new Block(200, 293),
-			new Block(250, 293),
-			new Flag(590, 293)
+			new KeyBlock(580, 160),
+			new Flag(130, 342)
 		]
 		
-		return new Level(3, new Ball(100 - Ball.RADIUS, 200, 1), 10, entities);
-
-		// return new Level(3, new Fortress(blocks, ball)); //! example of what i want to do when passing blocks
+		return new Level(3, new Ball(300 - Ball.RADIUS, 200, 1), 10, entities);
 	}
 }

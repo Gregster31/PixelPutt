@@ -32,6 +32,8 @@ export default class Level {
 		this.checkBallSpikeCollision()
 		if(this.number == 2) {
 			this.checkSandTile()
+		} else if(this.number == 3) {
+			this.unlock()
 		}
 		this.ball.update(dt);
 		this.shot.update(dt);
@@ -108,6 +110,32 @@ export default class Level {
 			}
 		});
 	}
+
+	unlock() {
+		this.entities.forEach(entity => {
+			if (entity.constructor.name === "KeyBlock") {
+				// Check for collision using Matter.js's Collision module
+				const collision = matter.SAT.collides(this.ball.body, entity.body);
+				if (collision) {
+					// console.log("collision")
+					this.onBallUnlockBlockCollision();
+				}
+			}
+		});
+	}
+
+	onBallUnlockBlockCollision() {
+		matter.Composite.allBodies(world).forEach(body => {
+			if (body.label === 'ground') {
+				matter.World.remove(world, body);
+			}
+		});
+	
+		this.ground = new Ground(4);
+		this.background = new Background(4);
+	}
+	
+	
 
 	checkSandTile() {
 		const sandLeft = 110; 

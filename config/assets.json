@@ -19,6 +19,18 @@
 			"height": 400
 		},
 		{
+			"name": "background3",
+			"path": "./assets/images/background3.png",
+			"width": 640,
+			"height": 400
+		},
+		{
+			"name": "background3Unlocked",
+			"path": "./assets/images/background3Unlocked.png",
+			"width": 640,
+			"height": 400
+		},
+		{
 			"name": "tiles",
 			"path": "./assets/images/tiles.png",
 			"width": 271,

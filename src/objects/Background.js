@@ -38,6 +38,9 @@ export default class Background {
             case 3:
                 backgroundImageName = ImageName.BackgroundLevel3;
                 break;
+            case 4:
+                backgroundImageName = ImageName.BackgroundLevel3Unlocked;
+                break;
             default:
                 backgroundImageName = ImageName.BackgroundMainMenu;
                 break;

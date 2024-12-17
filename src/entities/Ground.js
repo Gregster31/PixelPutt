@@ -146,7 +146,180 @@ export default class Ground extends GameEntity {
                     label: "ground",
                 });
                 break;
-        }
+
+            case 3:
+                const ground3 = matter.Bodies.rectangle(320, 373, 620, 70, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const plateform = matter.Bodies.rectangle(584, 201, 79, 48, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const mordor = matter.Bodies.rectangle(120, 245, 48, 200, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const square1 = matter.Bodies.rectangle(104, 88, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square2 = matter.Bodies.rectangle(135, 88, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square3 = matter.Bodies.rectangle(151, 104, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square4 = matter.Bodies.rectangle(88, 104, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square5 = matter.Bodies.rectangle(72, 120, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square6 = matter.Bodies.rectangle(88, 136, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square7 = matter.Bodies.rectangle(167, 120, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square8 = matter.Bodies.rectangle(151, 136, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                // Les 3 en bas a gauche
+                const square9 = matter.Bodies.rectangle(88, 312, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square10 = matter.Bodies.rectangle(88, 328, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square11 = matter.Bodies.rectangle(72, 328, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                // Les 3 en bas a right
+                const square12 = matter.Bodies.rectangle(151, 312, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square13 = matter.Bodies.rectangle(151, 328, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square14 = matter.Bodies.rectangle(167, 328, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                
+
+                compoundBody = matter.Body.create({
+                    parts: [ground3, plateform, mordor,
+                        square1,square2, square3,square4,square5, square6,square7, square8, square9, square10, square11,square12, square13, square14,
+                        borderLeft, borderUp, borderDown, borderRight],
+                    isStatic: true,
+                    label: "ground",
+                });
+                break;
+            
+            case 4:
+
+                const ground3u = matter.Bodies.rectangle(320, 373, 620, 70, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const plateformu = matter.Bodies.rectangle(584, 201, 79, 48, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const mordoru = matter.Bodies.rectangle(120, 216, 48, 143, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+
+                const square1u = matter.Bodies.rectangle(104, 88, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square2u = matter.Bodies.rectangle(135, 88, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square3u = matter.Bodies.rectangle(151, 104, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square4u = matter.Bodies.rectangle(88, 104, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square5u = matter.Bodies.rectangle(72, 120, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square6u = matter.Bodies.rectangle(88, 136, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square7u = matter.Bodies.rectangle(167, 120, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });
+                const square8u = matter.Bodies.rectangle(151, 136, 16, 16, "transparent", {
+                    isStatic: true,
+                    frictionStatic: 1,
+                    friction: 1,
+                });                
+
+                compoundBody = matter.Body.create({
+                    parts: [ground3u, plateformu, mordoru,
+                        square1u,square2u, square3u,square4u,square5u, square6u,square7u, square8u,
+                        borderLeft, borderUp, borderDown, borderRight],
+                    isStatic: true,
+                    label: "ground",
+                });
+                break;
+        
+            }
 
         return compoundBody;
     }
