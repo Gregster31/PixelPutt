@@ -40,10 +40,13 @@ export default class ShopState extends State {
 	constructor() {
 		super();
 
-		this.level = LevelMaker.createLevel(0);
-
 		// Start the music the very first time showing this state.
 		sounds.play(SoundName.Music);
+	}
+
+	enter() {
+		this.level = LevelMaker.createLevel(0);
+
 	}
 
 	exit() {
@@ -67,7 +70,8 @@ export default class ShopState extends State {
 	userClick() {
 		if (input.isMouseButtonPressed(Input.MOUSE.LEFT)) {
 			const mousePos = input.getMousePosition();
-			
+			sounds.play(SoundName.Bag);
+
 			if (this.isMouseInsideArea(mousePos, ShopState.whiteBallArea)) {
 				stateMachine.change(GameStateName.TitleScreen, {ballColor: 1});
 			} 

@@ -68,6 +68,48 @@
 			"size": 1,
 			"volume": 0.1,
 			"loop": true
+		},
+		{
+			"name": "hit",
+			"path": "./assets/sounds/golf_hit.wav",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
+		},
+		{
+			"name": "kill",
+			"path": "./assets/sounds/kill.wav",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
+		},
+		{
+			"name": "unlock",
+			"path": "./assets/sounds/unlock.mp3",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
+		},
+		{
+			"name": "victory",
+			"path": "./assets/sounds/victory.mp3",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
+		},
+		{
+			"name": "defeat",
+			"path": "./assets/sounds/defeat.mp3",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
+		},
+		{
+			"name": "bag",
+			"path": "./assets/sounds/bag.mp3",
+			"size": 1,
+			"volume": 0.2,
+			"loop": false
 		}
 	]
 }

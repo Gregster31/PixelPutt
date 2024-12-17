@@ -50,8 +50,6 @@ export default class TitleScreenState extends State {
 		// Time for a colour change if it's been half a second.
 		this.startColourTimer();
 
-		this.level = LevelMaker.createLevel(0);
-		
 		// Used to animate the full-screen transition rectangle.
 		this.transitionAlpha = 0;
 
@@ -67,6 +65,8 @@ export default class TitleScreenState extends State {
 	}
 
 	enter(parameters) {
+		this.level = LevelMaker.createLevel(0);
+
 		if(parameters.ballColor != undefined) {
 			this.ballColor = parameters.ballColor
 		}
@@ -77,7 +77,6 @@ export default class TitleScreenState extends State {
 		this.inTransition = false;
 		sounds.play(SoundName.Music);
 		this.startColourTimer();
-
 	}
 
 	exit() {
@@ -86,6 +85,7 @@ export default class TitleScreenState extends State {
 
 	update(dt) {
 		Engine.update(engine);
+		
 		this.level.update(dt);
 		if(this.level.ball.didStop()) {
 			this.level.ball.golfIt()
@@ -146,6 +146,19 @@ export default class TitleScreenState extends State {
 		this.drawLevelSelection();
 		this.drawShop();
 		this.drawTransitionOverlay();
+
+		if(this.levelHighScores[0] <= 3 && this.levelHighScores[1] <= 3 && this.levelHighScores[2] <= 3) {
+			context.font = '30px Retro'; 
+			context.textBaseline = 'middle';
+			context.textAlign = 'center';
+			context.fillStyle = 'rgb(0, 0, 0)'; 
+	
+			const message = `Congratulations, you are \na pro golfer 🏆`;
+			const xPos = CANVAS_WIDTH / 2;  
+			const yPos = CANVAS_HEIGHT / 2;
+	
+			context.fillText(message, xPos, yPos);
+		}
 		
 	}
 

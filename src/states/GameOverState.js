@@ -20,7 +20,7 @@ export default class GameOverState extends State {
 	}
 
 	update() {
-		if (input.isKeyPressed(Input.KEYS.ENTER)) { // Added change level with E
+		if (input.isKeyPressed(Input.KEYS.ENTER)) {
 			stateMachine.change(GameStateName.TitleScreen, {
 				background: this.background,
 				level: LevelMaker.createLevel(),

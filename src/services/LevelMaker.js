@@ -61,7 +61,7 @@ export default class LevelMaker {
 
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 130, ballColor), 10, entities);
+		return new Level(1, new Ball(100 - Ball.RADIUS, 130, ballColor), 3, entities);
 	}
 
 	static levelTwo(ballColor) {

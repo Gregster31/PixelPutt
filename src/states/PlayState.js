@@ -57,6 +57,7 @@ export default class PlayState extends State {
 	}
 
 	update(dt) {
+		this.checkWinOrLose();
 		/**
 		 * Update the Matter world one step/frame. By calling it here,
 		 * we can be sure that the Matter world will be updated at the
@@ -67,7 +68,6 @@ export default class PlayState extends State {
 		Engine.update(engine);
 
 		this.level?.update(dt);
-		this.checkWinOrLose();
 	}
 
 	render() {
@@ -76,12 +76,16 @@ export default class PlayState extends State {
 
 	checkWinOrLose() {
 		if (this.level?.didWin()) {
+			sounds.play(SoundName.Victory);
+
 			stateMachine.change(GameStateName.Victory, {
 				background: this.level.background,
 				level: this.level.number,
 				strokes: this.level.currentStrokes
 			});
 		} else if (this.level?.didLose()) {
+			sounds.play(SoundName.Defeat);
+
 			stateMachine.change(GameStateName.GameOver, {
 				background: this.level.background,
 			});

@@ -3,10 +3,12 @@ import Ground from "../entities/Ground.js";
 import {
 	context,
 	matter,
+	sounds,
 	world
 } from "../globals.js";
 import Ball from "../entities/Ball.js";
 import Shot from "./Shot.js";
+import SoundName from "../enums/SoundName.js";
 
 export default class Level {
 	/**
@@ -102,7 +104,7 @@ export default class Level {
 
 	didLose() {
 		// Check if the player has exceeded the maximum allowed strokes
-		return this.currentStrokes > this.maxStrokes;
+		return this.currentStrokes >= this.maxStrokes && this.ball.didStop();
 	}
 
 	checkBallSpikeCollision() {
@@ -132,6 +134,8 @@ export default class Level {
 	}
 
 	onBallUnlockBlockCollision() {
+		sounds.play(SoundName.Unlock);
+
 		matter.Composite.allBodies(world).forEach(body => {
 			if (body.label === 'ground') {
 				matter.World.remove(world, body);
@@ -172,6 +176,8 @@ export default class Level {
 	 * Handles what happens when the ball collides with a spike.
 	 */
 	onBallSpikeCollision() {
+		sounds.play(SoundName.Kill);
+
 		// Resets the ball position to the beginning
 		matter.Body.setPosition(this.ball.body, this.ball.initialSpawn);
 		matter.Body.setVelocity(this.ball.body, { x: 0, y: 0 });

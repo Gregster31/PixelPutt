@@ -1,4 +1,5 @@
 import GameEntity from "../entities/GameEntity.js";
+import SoundName from "../enums/SoundName.js";
 import {
 	canvas,
 	CANVAS_HEIGHT,
@@ -7,6 +8,7 @@ import {
 	engine,
 	images,
 	matter,
+	sounds,
 	world
 } from "../globals.js";
 
@@ -165,5 +167,6 @@ export default class Shot {
         Body.applyForce(this.ball.body, this.ball.body.position, force);
 
         this.wasLaunched = true;
+        sounds.play(SoundName.Hit);
     }
 }
