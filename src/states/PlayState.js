@@ -28,7 +28,7 @@ export default class PlayState extends State {
 
 	enter(parameters = {}) {
 		matter.World.clear(world, false);
-		sounds.play(SoundName.Music);
+		// sounds.play(SoundName.Music);
 		this.level = LevelMaker.createLevel(parameters.level, parameters.ballColor);
 
 		// //! IF YOU NEED TO CARRY BALL WITH MOUSE

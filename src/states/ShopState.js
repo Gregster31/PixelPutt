@@ -44,7 +44,7 @@ export default class ShopState extends State {
 		super();
 
 		// Start the music the very first time showing this state.
-		sounds.play(SoundName.Music);
+		// sounds.play(SoundName.Music);
 	}
 
 	enter() {
@@ -52,7 +52,7 @@ export default class ShopState extends State {
 	}
 
 	exit() {
-		sounds.pause(SoundName.Music);
+		// sounds.pause(SoundName.Music);
 	}
 
 	update(dt) {

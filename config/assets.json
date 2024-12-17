@@ -108,7 +108,7 @@
 			"name": "bag",
 			"path": "./assets/sounds/bag.mp3",
 			"size": 1,
-			"volume": 0.2,
+			"volume": 0.4,
 			"loop": false
 		}
 	]

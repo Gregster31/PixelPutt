@@ -55,7 +55,7 @@ export default class TitleScreenState extends State {
 		this.levelHighScores = [100,100,100]
 
 		// Start the music the very first time showing this state.
-		sounds.play(SoundName.Music);
+		// sounds.play(SoundName.Music);
 	}
 
 	enter(parameters) {
@@ -67,12 +67,12 @@ export default class TitleScreenState extends State {
 		if(this.levelHighScores[parameters.level - 1] > parameters.strokes) {
 			this.levelHighScores[parameters.level - 1] = parameters.strokes
 		}
-		sounds.play(SoundName.Music);
+		// sounds.play(SoundName.Music);
 		this.startColourTimer();
 	}
 
 	exit() {
-		sounds.pause(SoundName.Music);
+		// sounds.pause(SoundName.Music);
 	}
 
 	update(dt) {
