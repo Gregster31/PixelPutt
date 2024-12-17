@@ -38,7 +38,7 @@ export default class LevelTransitionState extends State {
 		this.levelLabelY = -this.levelLabelHeight;
 		this.levelLableTextX = 0;
 
-		// sounds.play(SoundName.Music3);
+		sounds.play(SoundName.Music3);
 
 		/**
 		 * Animate the white screen fade-in, then animate a drop-down with the level text.
