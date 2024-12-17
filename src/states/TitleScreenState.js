@@ -60,13 +60,18 @@ export default class TitleScreenState extends State {
 
 		this.ballColor = 1
 
+		this.levelHighScores = [100,100,100]
+
 		// Start the music the very first time showing this state.
 		sounds.play(SoundName.Music);
 	}
 
 	enter(parameters) {
-		if(parameters.ballColor) {
+		if(parameters.ballColor != undefined) {
 			this.ballColor = parameters.ballColor
+		}
+		if(this.levelHighScores[parameters.level - 1] > parameters.strokes) {
+			this.levelHighScores[parameters.level - 1] = parameters.strokes
 		}
 		this.transitionAlpha = 0;
 		this.inTransition = false;
@@ -149,12 +154,12 @@ export default class TitleScreenState extends State {
 		const menuHeight = 40; 
 		const menuSpacing = 10; 
 		const offSetY = 30;  
-
+	
 		for (let i = 0; i < this.levelOptions.length; i++) {
 			const level = this.levelOptions[i];
 			const x = CANVAS_WIDTH / 2 - (menuWidth * this.levelOptions.length + menuSpacing * (this.levelOptions.length - 1)) / 2 + (menuWidth + menuSpacing) * i;
 			const y = CANVAS_HEIGHT / 2 + offSetY;
-
+	
 			context.fillStyle = 'rgb(255, 255, 255, 0.5)';
 			roundedRectangle(
 				context,
@@ -166,7 +171,20 @@ export default class TitleScreenState extends State {
 				true,
 				false
 			);
-
+	
+			let borderColor = 'black';
+			if (this.levelHighScores[i] <= 2) {
+				borderColor = 'gold';
+			} else if (this.levelHighScores[i] <= 5) {
+				borderColor = 'silver'; 
+			} else if (this.levelHighScores[i] <= 10) {
+				borderColor = 'bronze'; 
+			}
+	
+			context.lineWidth = 2; 
+			context.strokeStyle = borderColor;
+			context.strokeRect(x, y, menuWidth, menuHeight); 
+	
 			context.fillStyle = 'black'; 
 			context.font = '20px Joystix'; 
 			context.textAlign = 'center';
@@ -174,6 +192,7 @@ export default class TitleScreenState extends State {
 			context.fillText(level, x + menuWidth / 2, y + menuHeight / 2);
 		}
 	}
+	
 
 	async startTransition(level) {
 			/**

@@ -50,9 +50,9 @@ stateMachine.add(GameStateName.ShopScreen, new ShopState());
 stateMachine.add(GameStateName.TitleScreen, new TitleScreenState());
 
 
-// stateMachine.change(GameStateName.TitleScreen); //! CHANGED FOR TESTING PURPOSES
+stateMachine.change(GameStateName.TitleScreen, {ballColor: 1}); //! CHANGED FOR TESTING PURPOSES
 // stateMachine.change(GameStateName.Play, {level:3});
-stateMachine.change(GameStateName.ShopScreen);
+// stateMachine.change(GameStateName.ShopScreen);
 
 const game = new Game(stateMachine, context, canvas.width, canvas.height);
 

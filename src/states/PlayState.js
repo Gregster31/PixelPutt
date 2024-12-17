@@ -31,7 +31,7 @@ export default class PlayState extends State {
 		sounds.play(SoundName.Music);
 		this.level = LevelMaker.createLevel(parameters.level, parameters.ballColor);
 
-		// //! TO CHANGE TESTING PURPOSES
+		// //! IF YOU NEED TO CARRY BALL WITH MOUSE
 		// /**
 		//  * To implement mouse interaction, Matter provides a dedicated mechanism
 		//  * to apply a Constraint to the mouse location. Mouse constraints are used
@@ -79,6 +79,7 @@ export default class PlayState extends State {
 			stateMachine.change(GameStateName.Victory, {
 				background: this.level.background,
 				level: this.level.number,
+				strokes: this.level.currentStrokes
 			});
 		} else if (this.level?.didLose()) {
 			stateMachine.change(GameStateName.GameOver, {

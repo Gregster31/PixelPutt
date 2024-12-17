@@ -47,15 +47,33 @@ export default class Level {
 		this.shot.render();
 		this.entities.forEach(entity => entity.render());
 
-		this.renderStatistics(); // Render debugging statistics
+		if(this.number != 0) this.renderStatistics();
 	}
 
 	renderStatistics() {
-		context.fillStyle = 'navy';
-		context.font = '30 PixelPut';
-		context.fillText(`Level: ${this.number}`, 20, 40);
-		context.fillText(`Strokes: ${this.currentStrokes}`, 20, 50);
+		context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+		context.fillRect(10, 10, 120, 90);
+	
+		// Text styling
+		context.fillStyle = 'white'; 
+		context.font = 'bold 15px Arial';
+		context.textAlign = 'left'; 
+		context.textBaseline = 'top'; 
+	
+		context.shadowColor = 'black';
+		context.shadowBlur = 4;
+		context.shadowOffsetX = 2;
+		context.shadowOffsetY = 2;
+	
+		// Render text with proper spacing
+		context.fillText(`Level: ${this.number}`, 20, 20);
+		context.fillText(`Strokes: ${this.currentStrokes}`, 20, 45);
+		context.fillText(`Par: ${this.maxStrokes}`, 20, 70);
+	
+		// Reset shadow properties to prevent affecting other drawings
+		context.shadowColor = 'transparent';
 	}
+	
 
 	didWin() {
 		const flags = this.entities.filter(entity => entity.constructor.name === "Flag");

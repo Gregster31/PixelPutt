@@ -17,13 +17,16 @@ export default class VictoryState extends State {
 
 	enter(parameters) {
 		this.background = parameters.background;
+		this.strokes = parameters.strokes;
+		this.levelNumber = parameters.level;
 	}
 
 	update() {
 		if (input.isKeyPressed(Input.KEYS.ENTER)) {
 			stateMachine.change(GameStateName.TitleScreen, {
 				background: this.background,
-				level: LevelMaker.createLevel(),
+				strokes: this.strokes,
+				level: this.levelNumber,
 			});
 		}
 	}
