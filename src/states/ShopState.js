@@ -52,7 +52,7 @@ export default class ShopState extends State {
 	}
 
 	exit() {
-		sounds.pause(SoundName.);
+		sounds.pause(SoundName.Music);
 	}
 
 	update(dt) {
