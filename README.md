@@ -13,9 +13,9 @@ Players begin at a certain place in the level. By draging their mouse when on to
 - A level design
 - Different kind of obstacles (static and dynamic)
 - A nice looking title screen
-- A shop screen to buy golf ball
+- A shop screen to choose golf ball
 - Add different terrain (Ex: Sand that slows down + amortize the ball)
-- Make secret holes
+- Make secret holes??
 
 ## 🤖 State Diagram
 ![golf (2)](https://github.com/user-attachments/assets/721568ca-25bd-4efc-92be-613aa6827ce5)
