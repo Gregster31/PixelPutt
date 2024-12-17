@@ -78,7 +78,7 @@ Bad: Shop button is not implemented yet, add transitionState?
 I plan on taking inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
 ### 💡Inspriration 
-https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s
+https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s <br>
 https://www.youtube.com/watch?v=RJJugb2uJPs
 
 ### 🖼️ Spites 
@@ -90,6 +90,9 @@ https://www.spriters-resource.com/nes/mckids/sheet/88096/ <br>
 
 ### 🔊 Sounds 
 https://www.youtube.com/watch?v=9gD-J5CBWRQ
+
+### ✒️Fonts
+https://www.dafont.com/bitmap.php?page=2&text=PixelPut
 
 ### 🎮 Game Engine 
 https://brm.io/matter-js/docs/classes/Bodies.html#method_fromVertices
