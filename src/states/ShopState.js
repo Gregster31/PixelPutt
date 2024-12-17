@@ -30,7 +30,7 @@ const { Composite, Engine, Mouse, MouseConstraint } = matter;
 
 
 /**
- * CODE TAKEN FROM MATCH3 ASSIGNMENT FROM VIKRAM SINGH
+ * CODE INSPIRED FROM MATCH3 ASSIGNMENT FROM VIKRAM SINGH
  * Represents the state the game is in when we've just started.
  * Displays "Match-3" in large text, as well as a menu to "Start" or "Quit".
  */
