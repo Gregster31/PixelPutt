@@ -47,9 +47,10 @@ export default class TitleScreenState extends State {
 			[255, 223, 0],   // Sun Yellow
 			[173, 216, 230], // Light Blue
 			[50, 205, 50],   // Lime Green
+			[255, 165, 0], 
 		];
 		
-		this.titleLetters = ['P', 'I', 'X', 'E', 'L', 'P', 'U', 'T'];
+		this.titleLetters = ['P', 'I', 'X', 'E', 'L', 'P', 'U', 'T', 'T'];
 		this.startColourTimer();
 		this.ballColor = 1
 		this.levelHighScores = [100,100,100]
