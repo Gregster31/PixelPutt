@@ -173,7 +173,7 @@ export default class TitleScreenState extends State {
 			);
 	
 			let borderColor = 'black';
-			if (this.levelHighScores[i] <= 2) {
+			if (this.levelHighScores[i] <= 3) {
 				borderColor = 'gold';
 			} else if (this.levelHighScores[i] <= 5) {
 				borderColor = 'silver'; 
@@ -186,7 +186,7 @@ export default class TitleScreenState extends State {
 			context.strokeRect(x, y, menuWidth, menuHeight); 
 	
 			context.fillStyle = 'black'; 
-			context.font = '20px Joystix'; 
+			context.font = '20px Retro'; 
 			context.textAlign = 'center';
 			context.textBaseline = 'middle';
 			context.fillText(level, x + menuWidth / 2, y + menuHeight / 2);
@@ -233,8 +233,7 @@ export default class TitleScreenState extends State {
 	 */
 	drawTitleText() {
 		const offSet = -140;
-
-		// Draw a semi-transparent rectangle behind the title.
+	
 		context.fillStyle = 'rgb(255, 255, 255, 0.5)';
 		roundedRectangle(
 			context,
@@ -246,18 +245,26 @@ export default class TitleScreenState extends State {
 			true,
 			false
 		);
-
-		context.font = '50px Joystix';
+	
+		context.font = '50px Retro';
 		context.textBaseline = 'middle';
 		context.textAlign = 'center';
-
-		// Print MATCH 3 letters in their current colors based on the timer.
+			context.strokeStyle = 'black'; 
+		context.lineWidth = 4; 
+	
 		for (let i = 0; i < this.titleLetters.length; i++) {
 			const r = this.colours[i][0];
 			const g = this.colours[i][1];
 			const b = this.colours[i][2];
-
+	
 			context.fillStyle = `rgb(${r}, ${g}, ${b})`;
+	
+			context.strokeText(
+				this.titleLetters[i][0],
+				CANVAS_WIDTH / 2 + 50 * i - 170,
+				CANVAS_HEIGHT / 2 + offSet + 55
+			);
+	
 			context.fillText(
 				this.titleLetters[i][0],
 				CANVAS_WIDTH / 2 + 50 * i - 170,
@@ -265,6 +272,7 @@ export default class TitleScreenState extends State {
 			);
 		}
 	}
+	
 
 	/**
 	 * Draws "Start" and "Quit Game" text over semi-transparent rectangles.
@@ -286,19 +294,31 @@ export default class TitleScreenState extends State {
 			false
 		);
 	
-		context.font = '30px Joystix';
+		context.font = '40px Retro';
 		context.textBaseline = 'middle';
 		context.textAlign = 'center';
-		context.fillStyle = `rgb(128, 0, 128)`;
+	
+		context.strokeStyle = 'black'; 
+		context.lineWidth = 2; 
+	
+		context.fillStyle = `rgb(128, 0, 128)`; 
 	
 		const text = 'Shop';
 		const textWidth = context.measureText(text).width;
+	
+		context.strokeText(
+			text,
+			offSet.x - textWidth / 2 + 30,
+			offSet.y + 72
+		);
+	
 		context.fillText(
 			text,
 			offSet.x - textWidth / 2 + 30,
-			offSet.y + 72 
+			offSet.y + 72
 		);
 	}
+	
 
 	startColourTimer() {
 		this.colourTimer = timer.addTask(() => {

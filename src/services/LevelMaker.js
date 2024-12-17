@@ -61,7 +61,7 @@ export default class LevelMaker {
 
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 50, ballColor), 10, entities);
+		return new Level(1, new Ball(100 - Ball.RADIUS, 130, ballColor), 10, entities);
 	}
 
 	static levelTwo(ballColor) {
@@ -89,7 +89,7 @@ export default class LevelMaker {
 			new Spike(489, 217),
 		]
 
-		return new Level(2, new Ball(50 - Ball.RADIUS, 250, ballColor), 10, entities);
+		return new Level(2, new Ball(80 - Ball.RADIUS, 250, ballColor), 10, entities);
 	}
 
 	static levelThree(ballColor) {
@@ -98,6 +98,6 @@ export default class LevelMaker {
 			new Flag(130, 342)
 		]
 		
-		return new Level(3, new Ball(300 - Ball.RADIUS, 200, ballColor), 10, entities);
+		return new Level(3, new Ball(590 - Ball.RADIUS, 260, ballColor), 10, entities);
 	}
 }

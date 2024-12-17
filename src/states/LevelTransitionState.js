@@ -104,7 +104,7 @@ export default class LevelTransitionState extends State {
 			this.levelLabelHeight
 		);
 		context.fillStyle = 'rgb(255, 255, 255, 1)';
-		context.font = '30px Joystix';
+		context.font = '30px Retro';
 		context.textBaseline = 'middle';
 		context.textAlign = 'center';
 		context.fillText(

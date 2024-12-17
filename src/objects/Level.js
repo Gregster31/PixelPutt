@@ -50,27 +50,16 @@ export default class Level {
 		if(this.number != 0) this.renderStatistics();
 	}
 
-	renderStatistics() {
-		context.fillStyle = 'rgba(0, 0, 0, 0.5)';
-		context.fillRect(10, 10, 120, 90);
-	
-		// Text styling
-		context.fillStyle = 'white'; 
-		context.font = 'bold 15px Arial';
+	renderStatistics() {	
+		context.fillStyle = 'black'; 
+		context.font = '15px Retro';
 		context.textAlign = 'left'; 
 		context.textBaseline = 'top'; 
 	
-		context.shadowColor = 'black';
-		context.shadowBlur = 4;
-		context.shadowOffsetX = 2;
-		context.shadowOffsetY = 2;
-	
-		// Render text with proper spacing
 		context.fillText(`Level: ${this.number}`, 20, 20);
 		context.fillText(`Strokes: ${this.currentStrokes}`, 20, 45);
 		context.fillText(`Par: ${this.maxStrokes}`, 20, 70);
 	
-		// Reset shadow properties to prevent affecting other drawings
 		context.shadowColor = 'transparent';
 	}
 	
@@ -184,7 +173,7 @@ export default class Level {
 	 */
 	onBallSpikeCollision() {
 		// Resets the ball position to the beginning
-		matter.Body.setPosition(this.ball.body, { x: 100 - Ball.RADIUS, y: 50 });
+		matter.Body.setPosition(this.ball.body, this.ball.initialSpawn);
 		matter.Body.setVelocity(this.ball.body, { x: 0, y: 0 });
 	}
 	

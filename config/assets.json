@@ -55,7 +55,12 @@
 			"height": 16
 		}
 	],
-	"fonts": [],
+	"fonts": [
+		{
+			"name": "Retro",
+			"path": "./assets/fonts/GrapeSoda.ttf"
+		}
+	],
 	"sounds": [
 		{
 			"name": "music",

@@ -32,21 +32,20 @@ export default class GameOverState extends State {
 		this.background.render();
 
 		context.save();
-		context.font = '60px PixelPut';
+		context.font = '60px Retro';
 		context.fillStyle = 'black';
 		context.textBaseline = 'middle';
 		context.textAlign = 'center';
-		context.fillText('Game Over', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 90);
-		context.fillStyle = 'crimson';
 		context.fillText(
-			'Game Over',
+			'You Lost',
 			CANVAS_WIDTH / 2 + 10,
 			CANVAS_HEIGHT / 2 - 80
 		);
+		context.fillStyle = 'black';
 		context.fillText(
 			'Press Enter to Menu',
 			CANVAS_WIDTH / 2,
-			CANVAS_HEIGHT - 80
+			CANVAS_HEIGHT - 90
 		);
 		context.restore();
 	}
