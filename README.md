@@ -1,6 +1,6 @@
 # ⛳PixelPut
 Game Programming Final Project 2024 <br>
-<a href="[url](https://gregster31.github.io/PixelPut/)">Play the Game!</a>
+<a href="https://gregster31.github.io/PixelPut/">Play the Game!</a>
 
 ## ✒️ Description
 PixelPut is a 2d puzzle golf game. Players must navigate through the objstacles and different terrain throughout the levels to get in the hole with the least amount of strokes.
