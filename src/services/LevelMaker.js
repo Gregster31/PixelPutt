@@ -14,29 +14,29 @@ import KeyBlock from "../entities/KeyBlock.js";
 export default class LevelMaker {
 	static START_X = 1500;
 
-	static createLevel(level = 0) {
+	static createLevel(level = 0, ballColor = 1) {
 		switch (level) {
 			case 0:
-				return LevelMaker.LevelMenu();
+				return LevelMaker.LevelMenu(ballColor);
 			case 1:
-				return LevelMaker.levelOne();
+				return LevelMaker.levelOne(ballColor);
 			case 2:
-				return LevelMaker.levelTwo();
+				return LevelMaker.levelTwo(ballColor);
 			case 3:
-				return LevelMaker.levelThree();
+				return LevelMaker.levelThree(ballColor);
 			default:
-				return LevelMaker.levelOne();
+				return LevelMaker.levelOne(ballColor);
 		}
 	}
 
-	static LevelMenu() {
+	static LevelMenu(ballColor) {
 		const entities = [
 			new Flag(580, 358),
 		]
-		return new Level(0, new Ball(100 - Ball.RADIUS, 200, 1), 30, entities);
+		return new Level(0, new Ball(100 - Ball.RADIUS, 200, ballColor), 30, entities);
 	}
 
-	static levelOne() {
+	static levelOne(ballColor) {
 		const entities = [
 			new Block(198, 120),
 			new Block(215, 120),
@@ -61,10 +61,10 @@ export default class LevelMaker {
 
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 50, 1), 10, entities);
+		return new Level(1, new Ball(100 - Ball.RADIUS, 50, ballColor), 10, entities);
 	}
 
-	static levelTwo() {
+	static levelTwo(ballColor) {
 		const entities = [
 			new Flag(585, 101),
 			new Flag(505, 368, true), // Secret flag
@@ -89,15 +89,15 @@ export default class LevelMaker {
 			new Spike(489, 217),
 		]
 
-		return new Level(2, new Ball(50 - Ball.RADIUS, 250, 1), 10, entities);
+		return new Level(2, new Ball(50 - Ball.RADIUS, 250, ballColor), 10, entities);
 	}
 
-	static levelThree() {
+	static levelThree(ballColor) {
 		const entities = [
 			new KeyBlock(580, 160),
 			new Flag(130, 342)
 		]
 		
-		return new Level(3, new Ball(300 - Ball.RADIUS, 200, 1), 10, entities);
+		return new Level(3, new Ball(300 - Ball.RADIUS, 200, ballColor), 10, entities);
 	}
 }

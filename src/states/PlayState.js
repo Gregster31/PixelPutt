@@ -29,7 +29,7 @@ export default class PlayState extends State {
 	enter(parameters = {}) {
 		matter.World.clear(world, false);
 		sounds.play(SoundName.Music);
-		this.level = LevelMaker.createLevel(parameters.level);
+		this.level = LevelMaker.createLevel(parameters.level, parameters.ballColor);
 
 		// //! TO CHANGE TESTING PURPOSES
 		// /**

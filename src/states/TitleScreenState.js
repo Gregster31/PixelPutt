@@ -58,11 +58,16 @@ export default class TitleScreenState extends State {
 		// If we've selected an option, we need to pause input while we animate out.
 		this.inTransition = false;
 
+		this.ballColor = 1
+
 		// Start the music the very first time showing this state.
 		sounds.play(SoundName.Music);
 	}
 
 	enter(parameters) {
+		if(parameters.ballColor) {
+			this.ballColor = parameters.ballColor
+		}
 		this.transitionAlpha = 0;
 		this.inTransition = false;
 		sounds.play(SoundName.Music);
@@ -96,23 +101,27 @@ export default class TitleScreenState extends State {
 			const level1Area = { x: 85, y: CANVAS_HEIGHT / 2 + 30, width: 150, height: 40 };
 			const level2Area = { x: 245, y: CANVAS_HEIGHT / 2 + 30, width: 150, height: 40 };
 			const level3Area = { x: 405, y: CANVAS_HEIGHT / 2 + 30, width: 150, height: 40 };
-			
+			const shopArea = { x: 170, y: 320, width: 300, height: 50 };
+
 			
 			if (this.isMouseInsideArea(mousePos, level1Area)) {
 				console.log("Level 1 Selected");
-				stateMachine.change(GameStateName.Play, {level: 1});
-				//! TO ADD TRANSITION BEFORE LEVEL RENDER
-				// this.startTransition(1);
+				stateMachine.change(GameStateName.Play, {level: 1, ballColor: this.ballColor});
 			} 
 			else if (this.isMouseInsideArea(mousePos, level2Area)) {
 				console.log("Level 2 Selected");
-				stateMachine.change(GameStateName.Play, {level: 2});
+				stateMachine.change(GameStateName.Play, {level: 2, ballColor: this.ballColor});
 			} 
 			else if (this.isMouseInsideArea(mousePos, level3Area)) {
 				console.log("Level 3 Selected");
-				stateMachine.change(GameStateName.Play, {level: 3});
+				stateMachine.change(GameStateName.Play, {level: 3, ballColor: this.ballColor});
 
 			}
+			else if (this.isMouseInsideArea(mousePos, shopArea)) {
+				console.log("Shop Selected");
+				stateMachine.change(GameStateName.ShopScreen);
+			}
+
 		}
 	}
 	
@@ -132,6 +141,7 @@ export default class TitleScreenState extends State {
 		this.drawLevelSelection();
 		this.drawShop();
 		this.drawTransitionOverlay();
+		
 	}
 
 	drawLevelSelection() {
