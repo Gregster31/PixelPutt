@@ -6,6 +6,7 @@ import Flag from "../objects/Flag.js";
 import Block from "../entities/Block.js";
 import Spike from "../entities/Spike.js";
 import KeyBlock from "../entities/KeyBlock.js";
+import MovingSpike from "../entities/MovingSpike.js";
 
 /**
  * Encapsulates all logic to create a level
@@ -61,7 +62,7 @@ export default class LevelMaker {
 
 			new Flag(100, 357)
 		]
-		return new Level(1, new Ball(100 - Ball.RADIUS, 130, ballColor), 3, entities);
+		return new Level(1, new Ball(100 - Ball.RADIUS, 130, ballColor), 10, entities);
 	}
 
 	static levelTwo(ballColor) {
@@ -95,6 +96,7 @@ export default class LevelMaker {
 	static levelThree(ballColor) {
 		const entities = [
 			new KeyBlock(580, 160),
+			new MovingSpike(330, 329, "up", "transparent", { isStatic: false }),
 			new Flag(130, 342)
 		]
 		

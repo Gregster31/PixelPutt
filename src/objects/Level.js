@@ -109,7 +109,7 @@ export default class Level {
 
 	checkBallSpikeCollision() {
 		this.entities.forEach(entity => {
-			if (entity.constructor.name === "Spike") {
+			if (entity.constructor.name === "Spike" || entity.constructor.name === "MovingSpike") {
 				// Check for collision using Matter.js's Collision module
 				const collision = matter.SAT.collides(this.ball.body, entity.body);
 				if (collision) {

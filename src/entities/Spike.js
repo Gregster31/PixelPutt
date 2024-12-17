@@ -79,20 +79,20 @@ export default class Spike extends Triangle {
         }
 
         //! FOR DEBUGGING PUPOSES
-        // context.strokeStyle = "blue";
-        // context.lineWidth = 2;
+        context.strokeStyle = "blue";
+        context.lineWidth = 2;
 
-        // const { vertices } = this.body;
+        const { vertices } = this.body;
 
-        // context.beginPath();
-        // context.moveTo(vertices[0].x, vertices[0].y);
+        context.beginPath();
+        context.moveTo(vertices[0].x, vertices[0].y);
 
-        // for (let i = 1; i < vertices.length; i++) {
-        //     context.lineTo(vertices[i].x, vertices[i].y);
-        // }
+        for (let i = 1; i < vertices.length; i++) {
+            context.lineTo(vertices[i].x, vertices[i].y);
+        }
 
-        // context.closePath();
-        // context.stroke();
+        context.closePath();
+        context.stroke();
     }
 
     static generateSpikeSprites() {
