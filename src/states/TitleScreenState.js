@@ -222,9 +222,9 @@ export default class TitleScreenState extends State {
 		context.fillStyle = 'rgb(255, 255, 255, 0.5)';
 		roundedRectangle(
 			context,
-			CANVAS_WIDTH / 2 - 225,
+			CANVAS_WIDTH / 2 - 230,
 			CANVAS_HEIGHT / 2 + offSet,
-			450,
+			480,
 			100,
 			5,
 			true,
@@ -246,13 +246,13 @@ export default class TitleScreenState extends State {
 	
 			context.strokeText(
 				this.titleLetters[i][0],
-				CANVAS_WIDTH / 2 + 50 * i - 170,
+				CANVAS_WIDTH / 2 + 50 * i - 185,
 				CANVAS_HEIGHT / 2 + offSet + 55
 			);
 	
 			context.fillText(
 				this.titleLetters[i][0],
-				CANVAS_WIDTH / 2 + 50 * i - 170,
+				CANVAS_WIDTH / 2 + 50 * i - 185,
 				CANVAS_HEIGHT / 2 + offSet + 55
 			);
 		}
