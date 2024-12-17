@@ -1,41 +1,36 @@
 # ⛳PixelPut
-Game Programming Final Project 2024
+Game Programming Final Project 2024 <br>
+<a href="[url](https://gregster31.github.io/PixelPut/)">Play the Game!</a>
 
 ## ✒️ Description
 PixelPut is a 2d puzzle golf game. Players must navigate through the objstacles and different terrain throughout the levels to get in the hole with the least amount of strokes.
 
 ## 🕹️ Gameplay
-Players begin at a certain place in the level. By draging their mouse when on top of the golf ball, they can choose the orientation and force of their shot. Throughout the levels will be obstacles, static ones like boxes and dynamic ones like walking monsters. When the player shoots the ball in the hole, he navigates to the next level.
+Players begin at a certain place in the level. By draging their mouse when on top of the golf ball, they can choose the orientation and force of their shot. Throughout the levels will be obstacles, static ones like boxes and dynamic like moving spikes. When the player shoots the ball in the hole, he navigates to the title screen to choose his next puzzle!
 
 ## 📃 Requirements
 - A controllable ball hit (Similar to Angry Birds)
 - A level design
-- Different kind of obstacles (static like boxes and dynamic like walking monsters)
+- Different kind of obstacles (static and dynamic)
 - A nice looking title screen
-- A shop screen to buy golf ball and player skins
+- A shop screen to buy golf ball
+- Add different terrain (Ex: Sand that slows down + amortize the ball)
+- Make secret holes
 
 ## 🤖 State Diagram
 ![golf (2)](https://github.com/user-attachments/assets/721568ca-25bd-4efc-92be-613aa6827ce5)
 
 ## 👷🏼‍♂️Developement
-### Ideas
-- Add obstacles (Ex: Boxes similar to blocks in AngryBirds)
-- Add different terrain (Ex: Sand that slows down + amortize the ball)
-- Add animations for hitting the ball (Player State)
-- ~~Add animations for flag in the wind~~
-- Add coins to buy new skins and ball colors
-- Make secret holes??
-
 ### Todo
 - ~~How to make the force arrow~~
 - ~~How will I change my levels (Create different pngs and put them as background)~~
 - ~~How to make a complex matter ground (Get the vertices of the png map)~~
 - ~~Purple band tiles bug~~
-- How to make character animation load the shot depending on the force arrow
-- Implement boxes (Pass an array of obj to level)
-- Implement different terrains
-- Make better levels
-- Clean structure of game
+- ~~How to make character animation load the shot depending on the force arrow~~
+- ~~Implement boxes (Pass an array of obj to level)~~
+- ~~Implement different terrains~~
+- ~~Make better levels~~
+- ~~Clean structure of game~~
 
 https://github.com/user-attachments/assets/bfc10f4d-2084-4433-bf4d-9d0770cdd232
 
