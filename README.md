@@ -1,6 +1,7 @@
 # ⛳PixelPutt
 Game Programming Final Project 2024 <br>
-<a href="https://gregster31.github.io/PixelPutt/">Play the Game!</a>
+<a href="https://gregster31.github.io/PixelPutt/">Click Here to Play the Game!</a> <br>
+<a href="https://www.youtube.com/watch?v=keX0mh8oofA">Check out the Developement of my Project!</a>
 
 ## ✒️ Description
 PixelPutt is a 2d puzzle golf game. Players must navigate through the objstacles and different terrain throughout the levels to get in the hole with the least amount of strokes.
@@ -8,69 +9,28 @@ PixelPutt is a 2d puzzle golf game. Players must navigate through the objstacles
 ## 🕹️ Gameplay
 Players begin at a certain place in the level. By draging their mouse when on top of the golf ball, they can choose the orientation and force of their shot. Throughout the levels will be obstacles, static ones like boxes and dynamic like moving spikes. When the player shoots the ball in the hole, he navigates to the title screen to choose his next puzzle!
 
-## 📃 Requirements
-- A controllable ball hit (Similar to Angry Birds)
-- A level design
-- Different kind of obstacles (static and dynamic)
-- A nice looking title screen
-- A shop screen to choose golf ball
-- Add different terrain (Ex: Sand that slows down + amortize the ball)
-- Make secret holes??
+## 📃 Features
+- Nice Menu Page
+- Nice Shop Page
+- Controllable ball hit (Can only control the ball when dragged from it and while it's not moving)
+- Intricate Level designs (x3)
+- Static & Dynamic obstacles (Boxes, LockBoxes, Spikes, Moving Spikes)
+- Different terrain (Grass, Slowing Sand)
+- Secret hole (x1)
+- Animated Flag
+- Gold, Silver, Bronze Borders (Depending on amount of strokes taken for the level)
+- Prize when all 3 levels are gold
 
-## 🤖 State Diagram
-![golf (2)](https://github.com/user-attachments/assets/721568ca-25bd-4efc-92be-613aa6827ce5)
+## 👷🏼‍♂️ Features to Add
+- Menu Button during PlayState
+- Factory Design for Forms creation
 
-## 👷🏼‍♂️Developement
-### Todo
-- ~~How to make the force arrow~~
-- ~~How will I change my levels (Create different pngs and put them as background)~~
-- ~~How to make a complex matter ground (Get the vertices of the png map)~~
-- ~~Purple band tiles bug~~
-- ~~How to make character animation load the shot depending on the force arrow~~
-- ~~Implement boxes (Pass an array of obj to level)~~
-- ~~Implement different terrains~~
-- ~~Make better levels~~
-- ~~Clean structure of game~~
-
-https://github.com/user-attachments/assets/bfc10f4d-2084-4433-bf4d-9d0770cdd232
-
-Good: Created a map, Added a ball object that has physic properties and different sprites, Can press SPACE to apply force to the ball. <br>
-Bad: Purple band bug, ball doesn't make contact with all parts of the map.
-
-
-https://github.com/user-attachments/assets/1ad3cc20-8695-417e-889d-1fd4d32337e8
-
-Good: Changed how map ground is implemented. Ground is now composed of multiple matter shapes capable of interacting with the ball. <br>
-Background is now just a PNG. Also, implemented level factory design, for easier level management.
-
-
-https://github.com/user-attachments/assets/1f2a224a-1f3b-4ceb-9e19-e94c5ab74a3c
-
-Good: Using mouse events, checks if the user drags his mouse and calculate the length and angle of the line to apply the right amount of force to the ball. <br>
-Bad: The shot implementation is pretty raw.
-
-
-https://github.com/user-attachments/assets/02e29804-15fe-40b9-bea9-94c7232ad4de
-
-Good: Added color on force arrow depending force and made it so only dragging from the ball works. Made a hole with small flag animation. Added Victory State. <br>
-Bad: VictoryState only checks if balls had the same X as the flag coordinates.
-
-
-https://github.com/user-attachments/assets/44104555-2856-48ed-9ced-a733d9678fe8
-
-Good: Added a level design, spikes, blocks, borders. <br>
-Bad: Need to adjust victory condition, add spike sprite, better block sprite, refactor code.
-
-
-https://github.com/user-attachments/assets/197fd7af-b968-4745-9eca-85f8c5d1409b
-
-Good: Added a nice MainMenu with a moving background <br>
-Bad: Shop button is not implemented yet, add transitionState?
-
-
+## 👾 Known Bugs
+- Bar bug: If you die to moving spike, force bar will stay
+- Passing Between Forms: You can pass between forms composing the map if you shot hard enough when 2 forms collide
 
 ## 🎨 Assets
-I plan on taking inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
+I took inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
 ### 💡Inspriration 
 https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s <br>
