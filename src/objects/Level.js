@@ -53,7 +53,11 @@ export default class Level {
 	}
 
 	renderStatistics() {	
-		context.fillStyle = 'black'; 
+		if(this.number > 2){
+			context.fillStyle = 'white';
+		} else{
+			context.fillStyle = 'black';
+		}
 		context.font = '15px Retro';
 		context.textAlign = 'left'; 
 		context.textBaseline = 'top'; 
@@ -122,26 +126,30 @@ export default class Level {
 	unlock() {
 		this.entities.forEach(entity => {
 			if (entity.constructor.name === "KeyBlock") {
+				const keyBlock = entity 
 				// Check for collision using Matter.js's Collision module
 				const collision = matter.SAT.collides(this.ball.body, entity.body);
 				if (collision) {
-					this.onBallUnlockBlockCollision();
+					this.onBallUnlockBlockCollision(keyBlock);
 				}
 			}
 		});
 	}
 
-	onBallUnlockBlockCollision() {
-		sounds.play(SoundName.Unlock);
+	onBallUnlockBlockCollision(keyBlock) {
+		if(!keyBlock.unlocked) {
+			sounds.play(SoundName.Unlock);
 
-		matter.Composite.allBodies(world).forEach(body => {
-			if (body.label === 'ground') {
-				matter.World.remove(world, body);
-			}
-		});
-	
-		this.ground = new Ground(4);
-		this.background = new Background(4);
+			matter.Composite.allBodies(world).forEach(body => {
+				if (body.label === 'ground') {
+					matter.World.remove(world, body);
+				}
+			});
+		
+			this.ground = new Ground(4);
+			this.background = new Background(4);
+			keyBlock.unlocked = true;
+		}
 	}
 	
 	checkSandTile() {

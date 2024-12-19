@@ -1,4 +1,3 @@
-import GameEntity from "../entities/GameEntity.js";
 import SoundName from "../enums/SoundName.js";
 import {
 	canvas,
@@ -24,6 +23,10 @@ const {
 
 
 export default class Shot {
+    static PERCENTAGE_RED = 90;
+    static PERCENTAGE_ORANGE = 60;
+    static PERCENTAGE_YELLOW = 30;
+
     constructor(level, ball) {
         this.level = level;
         this.ball = ball;
@@ -70,11 +73,11 @@ export default class Shot {
     getStrokeColor(clampedLength) {
         const lengthPercentage = (clampedLength / this.MAX_LINE_LENGTH) * 100;
 
-        if (lengthPercentage >= 90) {
+        if (lengthPercentage >= Shot.PERCENTAGE_RED) {
             return "red";
-        } else if (lengthPercentage >= 60) {
+        } else if (lengthPercentage >= Shot.PERCENTAGE_ORANGE) {
             return "orange";
-        } else if (lengthPercentage >= 30) {
+        } else if (lengthPercentage >= Shot.PERCENTAGE_YELLOW) {
             return "yellow";
         } 
         
@@ -93,14 +96,12 @@ export default class Shot {
             },
             collisionFilter: {
                 group: 0,
-                mask: 0xFFFFFFFF,
             },
         });
 
         // Exclude the ball from being moved by the mouse
         mouseConstraint.collisionFilter = {
             group: 0,
-            mask: 0xFFFFFFFF ^ 0x0002,
         };
 
         Composite.add(world, mouseConstraint);

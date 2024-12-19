@@ -1,7 +1,5 @@
 import GameStateName from '../enums/GameStateName.js'; 
 import {
-	// @ts-ignore
-	canvas,
 	CANVAS_HEIGHT,
 	CANVAS_WIDTH,
 	context,
@@ -11,20 +9,15 @@ import {
 	sounds,
 	stateMachine,
 	timer,
-	// @ts-ignore
-	world,
 } from '../globals.js';
 import State from '../../lib/State.js';
 import { roundedRectangle } from '../../lib/Drawing.js';
 import Input from '../../lib/Input.js';
 import Ball from '../entities/Ball.js';
 import SoundName from '../enums/SoundName.js';
-// @ts-ignore
-import Background from '../objects/Background.js';
 import LevelMaker from '../services/LevelMaker.js';
 import { getRandomPositiveInteger } from '../../lib/Random.js';
-// @ts-ignore
-const { Composite, Engine, Mouse, MouseConstraint } = matter;
+const { Engine } = matter;
 
 
 /**
@@ -33,6 +26,10 @@ const { Composite, Engine, Mouse, MouseConstraint } = matter;
  * Displays "Match-3" in large text, as well as a menu to "Start" or "Quit".
  */
 export default class TitleScreenState extends State {
+	static GOLD_BORDER = 3;
+	static SILVER_BORDER = 5;
+	static BRONZE_BORDER = 8;
+
 	constructor() {
 		super();
 
@@ -47,7 +44,7 @@ export default class TitleScreenState extends State {
 			[255, 223, 0],   // Sun Yellow
 			[173, 216, 230], // Light Blue
 			[50, 205, 50],   // Lime Green
-			[255, 165, 0], 
+			[255, 165, 0], // Straight up just orange
 		];
 		
 		this.titleLetters = ['P', 'I', 'X', 'E', 'L', 'P', 'U', 'T', 'T'];
@@ -144,20 +141,22 @@ export default class TitleScreenState extends State {
 		this.drawTitleText();
 		this.drawLevelSelection();
 		this.drawShop();
+		this.drawPrize();		
+	}
 
-		if(this.levelHighScores[0] <= 3 && this.levelHighScores[1] <= 3 && this.levelHighScores[2] <= 3) {
+	drawPrize() {
+		if(this.levelHighScores.every(score => score <= TitleScreenState.GOLD_BORDER)) {
 			context.font = '30px Retro'; 
 			context.textBaseline = 'middle';
 			context.textAlign = 'center';
 			context.fillStyle = 'rgb(0, 0, 0)'; 
 	
-			const message = `Congratulations, you are \na pro golfer 🏆`;
+			const message = `Congratulations, you are\na pro golfer 🏆`;
 			const xPos = CANVAS_WIDTH / 2;  
 			const yPos = CANVAS_HEIGHT / 2;
 	
 			context.fillText(message, xPos, yPos);
-		}
-		
+		}	
 	}
 
 	drawLevelSelection() {
@@ -184,12 +183,12 @@ export default class TitleScreenState extends State {
 			);
 	
 			let borderColor = 'black';
-			if (this.levelHighScores[i] <= 3) {
-				borderColor = 'gold';
-			} else if (this.levelHighScores[i] <= 5) {
-				borderColor = 'silver'; 
-			} else if (this.levelHighScores[i] <= 10) {
-				borderColor = 'bronze'; 
+			if (this.levelHighScores[i] <= TitleScreenState.GOLD_BORDER) {
+				borderColor = '#FFD700';
+			} else if (this.levelHighScores[i] <= TitleScreenState.SILVER_BORDER) {
+				borderColor = '#C0C0C0'; 
+			} else if (this.levelHighScores[i] <= TitleScreenState.BRONZE_BORDER) {
+				borderColor = '#cd7f32'; 
 			}
 	
 			context.lineWidth = 2; 

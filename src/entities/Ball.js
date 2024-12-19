@@ -18,17 +18,6 @@ export default class Ball extends Circle {
 
 	static RADIUS = 5; // To change the golf ball size
 
-	/**
-	 * A bird that will be launched at the pig fortress. The bird is a
-	 * dynamic (i.e. non-static) Matter body meaning it is affected by
-	 * the world's physics. We've given the bird a high restitution value
-	 * so that it is bouncy.<
-	 *
-	 * @see https://brm.io/matter-js/docs/classes/Body.html#property_restitution
-	 *
-	 * @param {number} x
-	 * @param {number} y
-	 */
 	constructor(x, y, color = 1, parameters = {}) {
 		super(x, y, Ball.RADIUS, color, {
 			label: 'ball',

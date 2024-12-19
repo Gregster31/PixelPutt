@@ -1,6 +1,5 @@
 import State from '../../lib/State.js';
 import Debug from '../../lib/Debug.js';
-import Map from '../services/Map.js';
 import Input from '../../lib/Input.js';
 import {
 	canvas,

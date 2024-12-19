@@ -26,7 +26,6 @@ import {
 import PlayState from './states/PlayState.js';
 import GameOverState from './states/GameOverState.js';
 import VictoryState from './states/VictoryState.js';
-import LevelTransitionState from './states/LevelTransitionState.js';
 import TitleScreenState from './states/TitleScreenState.js';
 import ShopState from './states/ShopState.js';
 
@@ -41,15 +40,12 @@ document.body.prepend(canvas);
 // Add all the states to the state machine.
 stateMachine.add(GameStateName.GameOver, new GameOverState());
 stateMachine.add(GameStateName.Victory, new VictoryState());
-stateMachine.add(GameStateName.LevelTransition, new LevelTransitionState());
 stateMachine.add(GameStateName.Play, new PlayState());
 stateMachine.add(GameStateName.ShopScreen, new ShopState());
 stateMachine.add(GameStateName.TitleScreen, new TitleScreenState());
 
 
 stateMachine.change(GameStateName.TitleScreen, {ballColor: 1});
-// stateMachine.change(GameStateName.Play, {level:3});
-// stateMachine.change(GameStateName.ShopScreen);
 
 const game = new Game(stateMachine, context, canvas.width, canvas.height);
 

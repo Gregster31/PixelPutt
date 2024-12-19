@@ -97,7 +97,7 @@ export default class LevelMaker {
 		const entities = [
 			new KeyBlock(580, 160),
 			new MovingSpike(330, 329, "up", "transparent", { isStatic: false }),
-			new Flag(130, 342)
+			new Flag(130, 341)
 		]
 		
 		return new Level(3, new Ball(590 - Ball.RADIUS, 260, ballColor), 10, entities);

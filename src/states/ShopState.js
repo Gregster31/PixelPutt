@@ -49,6 +49,7 @@ export default class ShopState extends State {
 
 	enter() {
 		this.level = LevelMaker.createLevel(0);
+		sounds.play(SoundName.Music);
 	}
 
 	exit() {

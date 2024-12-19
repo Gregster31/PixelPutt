@@ -1,6 +1,6 @@
 import { pickRandomElement } from '../../lib/Random.js';
 import Sprite from '../../lib/Sprite.js';
-import BlockTypeName from '../enums/BlockTypeName.js';
+import BlockTypeName from '../enums/FormName.js';
 import ImageName from '../enums/ImageName.js';
 import SoundName from '../enums/SoundName.js';
 import { context, images, matter, sounds } from '../globals.js';

@@ -48,7 +48,7 @@ export default class VictoryState extends State {
 		context.fillText(
 			'Press Enter to Menu',
 			CANVAS_WIDTH / 2,
-			CANVAS_HEIGHT - 90
+			CANVAS_HEIGHT / 2 + 20
 		);
 		context.restore();
 	}
