@@ -32,24 +32,24 @@ Players begin at a certain place in the level. By draging their mouse when on to
 ## 🎨 Assets
 I took inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
 
-### 💡Inspriration 
+#### 💡Inspriration 
 https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s <br>
 https://www.youtube.com/watch?v=RJJugb2uJPs
 
-### 🖼️ Spites 
+#### 🖼️ Spites 
 https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/ <br>
 https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/ <br>
 https://www.spriters-resource.com/fullview/169559/ <br>
 https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/17601/ <br>
 https://www.spriters-resource.com/nes/mckids/sheet/88096/ <br>
 
-### 🔊 Sounds 
+#### 🔊 Sounds 
 https://www.youtube.com/watch?v=9gD-J5CBWRQ
 
-### ✒️Fonts
+#### ✒️Fonts
 https://www.dafont.com/bitmap.php?page=2&text=PixelPut
 
-### 🎮 Game Engine 
+#### 🎮 Game Engine 
 https://brm.io/matter-js/docs/classes/Bodies.html#method_fromVertices
 
 
