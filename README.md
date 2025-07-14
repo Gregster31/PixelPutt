@@ -1,3 +1,5 @@
+> ⚠️ **Warning:** If you copy my project, at least make sure to star it first!
+
 # ⛳PixelPutt
 Game Programming Final Project 2024 <br>
 <a href="https://gregster31.github.io/PixelPutt/">Click Here to Play the Game!</a> <br>
