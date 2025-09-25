@@ -30,9 +30,9 @@ Players begin at a certain place in the level. By draging their mouse when on to
 - Factory Design for Forms creation
 
 ## 👾 Known Bugs
-- Bar bug: If you die to moving spike, force bar will stay
+- Bar bug: If you die to moving spike while aiming, force bar will stay
 - Passing Between Forms: You can pass between forms composing the map if you shot hard enough when 2 forms collide
-- Refresh rate effects the speed of the ball...
+- Refresh rate: Affects the speed of the ball
 
 ## 🎨 Assets
 I took inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
