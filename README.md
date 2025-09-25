@@ -41,7 +41,7 @@ I took inspiration from _super stickman golf game_ for the layout of the game an
 https://www.youtube.com/watch?v=EZ3a7KALcTQ&t=6s <br>
 https://www.youtube.com/watch?v=RJJugb2uJPs
 
-#### 🖼️ Spites 
+#### 🖼️ Sprites 
 https://www.spriters-resource.com/mobile/superstickgolf2/sheet/70674/ <br>
 https://www.spriters-resource.com/game_boy_gbc/warioland3/sheet/95433/ <br>
 https://www.spriters-resource.com/fullview/169559/ <br>
