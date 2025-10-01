@@ -32,7 +32,6 @@ Players begin at a certain place in the level. By draging their mouse when on to
 ## 👾 Known Bugs
 - Bar bug: If you die to moving spike while aiming, force bar will stay
 - Passing Between Forms: You can pass between forms composing the map if you shot hard enough when 2 forms collide
-- Refresh rate: Affects the speed of the ball
 
 ## 🎨 Assets
 I took inspiration from _super stickman golf game_ for the layout of the game and _dunk shot_ for the force arrow.
