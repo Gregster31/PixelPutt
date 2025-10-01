@@ -29,35 +29,21 @@ export default class PlayState extends State {
 		matter.World.clear(world, false);
 		sounds.play(SoundName.Music);
 		this.level = LevelMaker.createLevel(parameters.level, parameters.ballColor);
-
-		// //! IF YOU NEED TO CARRY BALL WITH MOUSE
-		// /**
-		//  * To implement mouse interaction, Matter provides a dedicated mechanism
-		//  * to apply a Constraint to the mouse location. Mouse constraints are used
-		//  * for allowing user interaction, providing the ability to move bodies via
-		//  * the mouse or touch.
-		//  *
-		//  * @see https://brm.io/matter-js/docs/classes/MouseConstraint.html
-		//  */
-		// Composite.add(
-		// 	world,
-		// 	MouseConstraint.create(engine, {
-		// 		mouse: Mouse.create(canvas),
-		// 	})
-		// );
 	}
 
 	exit() {
 		// Remove all bodies from the Matter world
 		matter.World.clear(world, false);
 
-		// @ts-ignore
 		this.level.entities = [];		
 	}
 
 	update(dt) {
 		this.checkWinOrLose();
-		Engine.update(engine);
+		
+		// Fixed timestep for Matter.js - use delta time in milliseconds
+		// This ensures consistent physics regardless of frame rate
+		Engine.update(engine, dt * 1000);
 
 		this.level?.update(dt);
 	}
