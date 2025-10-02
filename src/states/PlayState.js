@@ -40,10 +40,7 @@ export default class PlayState extends State {
 
 	update(dt) {
 		this.checkWinOrLose();
-		
-		// Fixed timestep for Matter.js - use delta time in milliseconds
-		// This ensures consistent physics regardless of frame rate
-		Engine.update(engine, dt * 100);
+		Engine.update(engine, 1000 / 60);
 
 		this.level?.update(dt);
 	}
