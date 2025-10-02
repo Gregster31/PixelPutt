@@ -33,6 +33,10 @@ export default class TitleScreenState extends State {
 	constructor() {
 		super();
 
+		// Fixed timestep accumulator for physics
+		this.physicsAccumulator = 0;
+		this.fixedTimeStep = 1 / 60;
+
 		this.levelOptions = ['1', '2', '3'];
 
 		this.colours = [
@@ -58,6 +62,7 @@ export default class TitleScreenState extends State {
 
 	enter(parameters) {
 		this.level = LevelMaker.createLevel(0);
+		this.physicsAccumulator = 0; // Reset accumulator
 
 		if(parameters.ballColor != undefined) {
 			this.ballColor = parameters.ballColor
@@ -74,19 +79,21 @@ export default class TitleScreenState extends State {
 	}
 
 	update(dt) {
-		Engine.update(engine);
+		// Accumulate time
+		this.physicsAccumulator += dt;
 		
-		// @ts-ignore
+		// Update physics in fixed timesteps
+		while (this.physicsAccumulator >= this.fixedTimeStep) {
+			Engine.update(engine, this.fixedTimeStep * 1000);
+			this.physicsAccumulator -= this.fixedTimeStep;
+		}
+		
 		this.level.update(dt);
-		// @ts-ignore
 		if(this.level.ball.didStop()) {
-			// @ts-ignore
 			this.level.ball.golfIt()
 		}
 
-		// @ts-ignore
 		if(this.level.ball.isOutOfCanvas()) {
-			// @ts-ignore
 			this.level.ball = new Ball(100 - Ball.RADIUS, 250, getRandomPositiveInteger(1,4))
 		}
 		
@@ -135,7 +142,6 @@ export default class TitleScreenState extends State {
 	}
 
 	render() {
-		// @ts-ignore
 		this.level.render();
 		this.drawDarkBackground();
 		this.drawTitleText();
@@ -233,7 +239,7 @@ export default class TitleScreenState extends State {
 		context.font = '50px Retro';
 		context.textBaseline = 'middle';
 		context.textAlign = 'center';
-			context.strokeStyle = 'black'; 
+		context.strokeStyle = 'black'; 
 		context.lineWidth = 4; 
 	
 		for (let i = 0; i < this.titleLetters.length; i++) {

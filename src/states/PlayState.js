@@ -23,12 +23,16 @@ const { Composite, Engine, Mouse, MouseConstraint } = matter;
 export default class PlayState extends State {
 	constructor() {
 		super();
+		// Accumulator for fixed timestep physics
+		this.physicsAccumulator = 0;
+		this.fixedTimeStep = 1 / 60; // 60 fps in seconds
 	}
 
 	enter(parameters = {}) {
 		matter.World.clear(world, false);
 		sounds.play(SoundName.Music);
 		this.level = LevelMaker.createLevel(parameters.level, parameters.ballColor);
+		this.physicsAccumulator = 0; // Reset accumulator when entering state
 	}
 
 	exit() {
@@ -40,7 +44,15 @@ export default class PlayState extends State {
 
 	update(dt) {
 		this.checkWinOrLose();
-		Engine.update(engine, 1000 / 60);
+		
+		// Accumulate time
+		this.physicsAccumulator += dt;
+		
+		// Update physics in fixed timesteps
+		while (this.physicsAccumulator >= this.fixedTimeStep) {
+			Engine.update(engine, this.fixedTimeStep * 1000);
+			this.physicsAccumulator -= this.fixedTimeStep;
+		}
 
 		this.level?.update(dt);
 	}
