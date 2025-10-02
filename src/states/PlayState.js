@@ -43,7 +43,7 @@ export default class PlayState extends State {
 		
 		// Fixed timestep for Matter.js - use delta time in milliseconds
 		// This ensures consistent physics regardless of frame rate
-		Engine.update(engine, dt * 1000);
+		Engine.update(engine, dt * 100);
 
 		this.level?.update(dt);
 	}
